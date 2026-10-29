@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://blackbeltingenieria-droid.github.io/blackbelt-group-web/sitemap.xml

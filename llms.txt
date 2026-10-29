@@ -1,0 +1,29 @@
+# Blackbelt Group
+
+> Grupo peruano con base en Lima que integra ingeniería, tecnología, investigación e innovación para desarrollar soluciones a problemas reales de empresas, emprendedores e iniciativas de investigación. Lema: "Soluciones para problemas reales".
+
+Blackbelt Group trabaja con cinco unidades de negocio que pueden operar por separado o integrarse en una solución conjunta. Realiza trabajo de campo en distintas regiones del Perú (por ejemplo, Huancavelica y Jaén, Cajamarca).
+
+## Servicios
+
+- Ingeniería y Productividad: mejora y optimización de procesos, análisis de productividad, Lean Manufacturing, gestión de calidad, indicadores de gestión, estudios de tiempos y movimientos.
+- Tecnología y Transformación Digital: análisis y visualización de datos, dashboards e inteligencia de negocio, automatización de procesos, desarrollo de sistemas y aplicaciones, integración y gestión de datos, soluciones digitales a medida.
+- Investigación y Desarrollo: investigación aplicada, estudios y análisis técnicos, desarrollo experimental, prototipos y validación, análisis e interpretación de datos, asesoría en trabajos de investigación.
+- Ingeniería Especializada (Geofísica): métodos sísmicos (refracción 2D y 3D, reflexión sísmica somera, MASW, MAM, ReMi, Down-Hole, Cross-Hole, microtremoraciones Nakamura, monitoreo sísmico), geoeléctricos (tomografía de resistividad eléctrica 2D y 3D, polarización inducida, sondaje eléctrico vertical, resistividad para puesta a tierra, calicata eléctrica, potencial espontáneo) y electromagnéticos (georradar GPR, TEM multioffset, FDEM). Trabaja con aliados especializados en geofísica.
+- Emprendimiento y Desarrollo Empresarial: ideación y validación, modelo de negocio, planificación estratégica, gestión y operación, marketing y ventas, capacitación empresarial. Acompaña las etapas explorar, planificar, lanzar, crecer y consolidar.
+
+## Proyectos
+
+- Tomografía eléctrica en Huancavelica y en Jaén (Cajamarca).
+- Expedición ambiental, muestreo en cuerpos de agua y análisis de calidad de agua.
+- Deshidratado de plátano, pimentón y aguaymanto (industria de alimentos).
+- Mejora de la producción de alfajores del emprendimiento Munay.
+
+## Contacto
+
+- Sitio web: https://blackbeltingenieria-droid.github.io/blackbelt-group-web/
+- Correo: blackbelt.ingenieria@gmail.com
+- Ubicación: Lima, Perú
+- Facebook: https://www.facebook.com/share/1CFyURwj4t/
+- Instagram: https://www.instagram.com/blackbelt.ingenieria
+- TikTok: https://www.tiktok.com/@blackbelt_group
