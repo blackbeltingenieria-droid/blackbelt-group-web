@@ -1,0 +1,29 @@
+# Archivos de la exportación del editor de diseño (no forman parte del sitio)
+Main.dc.html
+support.js
+vendor/
+project/
+README.md
+.claude/
+
+# Solo se publican las imágenes que usa index.html
+assets/*
+!assets/amb-muestras.jpg
+!assets/amb-multiparametro.jpg
+!assets/amb-nitrogeno.jpg
+!assets/amb-quebrada.jpg
+!assets/amb-rio.jpg
+!assets/emprendimiento.jpg
+!assets/geo-equipo-huancavelica.jpg
+!assets/geo-equipo-resistividad.jpg
+!assets/geo-jaen.jpg
+!assets/geo-medicion.jpg
+!assets/id.jpg
+!assets/ing-productividad.jpg
+!assets/logo2-dark.png
+!assets/proj-aguaymanto.jpg
+!assets/proj-ambiental.jpg
+!assets/proj-huancavelica.jpg
+!assets/proj-pimenton.jpg
+!assets/proj-platano.jpg
+!assets/tecnologia.jpg

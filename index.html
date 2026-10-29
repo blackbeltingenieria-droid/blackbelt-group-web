@@ -1,0 +1,647 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BLACKBELT GROUP — Soluciones para problemas reales</title>
+<meta name="description" content="Blackbelt Group integra ingeniería, tecnología, investigación e innovación para desarrollar soluciones a problemas reales. Lima, Perú.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="assets/logo2-dark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --black:#000000; --ink:#0B0F13; --card:#0E1318;
+  --gold:#F0C358; --gold-hover:#F7D684; --gold-line:rgba(240,195,88,.22); --gold-soft:rgba(240,195,88,.4);
+  --gold-dark:#A0731B; --gold-darker:#7A5512; --gold-mid:#C8962E;
+  --cream:#F5F3EE; --cream-line:#DDD7CA; --paper:#FFFFFF;
+  --text-light:#F4F2EC; --muted-light:#C9C5BB; --muted-light2:#B8B4AA;
+  --text-dark:#15171A; --body-dark:#2A2C30; --muted-dark:#3A3C40;
+  --display:'Barlow Condensed',system-ui,sans-serif; --body:'Barlow',system-ui,sans-serif;
+  --pad-y:104px; --gutter:24px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{margin:0;background:var(--black);color:var(--text-dark);font-family:var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:var(--gold);text-decoration:none}a:hover{color:var(--gold-hover)}
+.light a{color:#8A6214}.light a:hover{color:#5E4209}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 var(--gutter)}
+.section{padding:var(--pad-y) 0}
+.dark{background:var(--black);color:var(--text-light)}
+.ink{background:var(--ink);color:var(--text-light)}
+.light{background:var(--cream);color:var(--text-dark)}
+.h2{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(44px,6vw,72px);line-height:.95;text-transform:uppercase}
+.dark .h2 span,.ink .h2 span{color:var(--gold)}
+.light .h2 span{color:var(--gold-dark)}
+.rule{width:64px;height:3px;background:var(--gold-mid)}
+.sec-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px 64px;margin-bottom:44px}
+.sec-head p{margin:0;max-width:520px;font-size:18px;line-height:1.6}
+.dark .sec-head p,.ink .sec-head p{color:var(--muted-light)}
+.light .sec-head p{color:var(--muted-dark)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:.08em;text-transform:uppercase;border-radius:2px;border:0;cursor:pointer}
+.btn-gold{background:var(--gold);color:var(--black)}.btn-gold:hover{color:var(--black);filter:brightness(1.08)}
+.btn-ghost{border:1px solid var(--gold);color:var(--text-light)}.btn-ghost:hover{background:rgba(240,195,88,.12);color:var(--text-light)}
+.ico{width:34px;height:34px;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+
+/* NAV */
+.site-header{position:sticky;top:0;z-index:50;background:var(--black);border-bottom:1px solid var(--gold-line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:12px;padding-bottom:12px}
+.brand img{height:68px;width:auto}
+.menu{display:flex;align-items:center;gap:28px;font-family:var(--display);font-weight:600;font-size:17px;letter-spacing:.08em;text-transform:uppercase}
+.menu a{color:#E9E6DF;padding:10px 0}.menu a:hover{color:var(--gold)}
+.menu .btn{color:var(--black);min-height:46px;font-size:17px;padding:0 22px}
+.menu-toggle{display:none;width:48px;height:48px;align-items:center;justify-content:center;background:transparent;border:1px solid var(--gold-line);color:var(--text-light);border-radius:2px;cursor:pointer}
+.menu-toggle svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+
+/* HERO */
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);align-items:center;gap:56px;padding-top:72px;padding-bottom:64px}
+.hero-copy{display:flex;flex-direction:column;gap:24px}
+.eyebrow{margin:0;font-family:var(--display);font-weight:600;font-size:16px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-light)}
+.eyebrow span{color:var(--gold)}
+.hero h1{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(48px,8vw,104px);line-height:.92;text-transform:uppercase}
+.hero h1 span{color:var(--gold)}
+.hero .rule{width:72px;background:var(--gold)}
+.lead{margin:0;max-width:520px;font-size:19px;line-height:1.6;color:#D6D2C8;border-left:2px solid var(--gold);padding-left:18px}
+.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:8px}
+.hero-media{position:relative}
+.hero-media .frame{position:absolute;inset:18px -18px -18px 18px;border:1px solid var(--gold);clip-path:polygon(22% 0,100% 0,100% 100%,0 100%,0 30%)}
+.hero-media img{position:relative;width:100%;height:540px;object-fit:cover;object-position:58% 50%;clip-path:polygon(22% 0,100% 0,100% 100%,0 100%,0 30%)}
+.hero-caption{position:absolute;left:0;bottom:28px;max-width:290px;background:var(--black);border-top:3px solid var(--gold);padding:18px 20px;display:flex;gap:12px;align-items:flex-start}
+.hero-caption .ico{width:22px;height:22px;color:var(--gold);margin-top:2px}
+.hero-caption p{margin:0;font-size:15px;line-height:1.45;color:#D6D2C8}
+.hero-caption strong{color:var(--text-light);font-weight:600}
+.pillar-strip{border-top:1px solid var(--gold-line)}
+.pillar-strip .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 16px}
+.pill{display:flex;align-items:center;gap:14px;padding:26px 0}
+.pill .ico{color:var(--gold)}
+.pill b{display:block;font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:.08em;color:var(--text-light)}
+.pill span{font-size:14px;color:var(--muted-light2)}
+
+/* NOSOTROS */
+.about{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px}
+.about-copy{display:flex;flex-direction:column;gap:22px}
+.about-copy p{margin:0;font-size:20px;line-height:1.6;color:var(--body-dark)}
+.about-copy strong{color:var(--gold-darker)}
+.feature{display:flex;gap:20px;padding:28px 0;border-top:1px solid var(--cream-line)}
+.feature:last-child{border-bottom:1px solid var(--cream-line)}
+.round{flex:none;width:52px;height:52px;border-radius:50%;border:1.5px solid var(--gold-mid);display:flex;align-items:center;justify-content:center;color:var(--gold-dark)}
+.round .ico{width:24px;height:24px;stroke-width:1.7}
+.feature h3{margin:0 0 8px;font-family:var(--display);font-weight:700;font-size:24px;letter-spacing:.04em;text-transform:uppercase}
+.feature p{margin:0;font-size:17px;line-height:1.6;color:var(--muted-dark)}
+
+/* VALORES */
+.values{display:flex;flex-wrap:wrap;align-items:center;gap:20px 40px;padding-top:40px;padding-bottom:40px}
+.values h2{margin:0;font-family:var(--display);font-weight:700;font-size:22px;letter-spacing:.1em;text-transform:uppercase}
+.values h2 span{color:var(--gold)}
+.chips{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:10px;flex:1 1 600px}
+.chips li{padding:10px 16px;border:1px solid var(--gold-soft);font-family:var(--display);font-weight:600;font-size:16px;letter-spacing:.08em;text-transform:uppercase;color:#E9E6DF}
+
+/* PILARES */
+.cards4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.pcard{background:var(--card);border:1px solid rgba(240,195,88,.25);border-top:3px solid var(--gold);padding:32px 28px;display:flex;flex-direction:column;gap:16px;transition:transform .25s}
+.pcard:hover{transform:translateY(-4px)}
+.pcard .round{width:60px;height:60px;background:var(--black);border-color:var(--gold);color:var(--gold)}
+.pcard .round .ico{width:28px;height:28px;stroke-width:1.5}
+.pcard h3{margin:0;font-family:var(--display);font-weight:700;font-size:28px;letter-spacing:.06em;text-transform:uppercase}
+.pcard p{margin:0;font-size:16px;line-height:1.6;color:var(--muted-light)}
+
+/* UNIDADES */
+.tabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-bottom:24px}
+.tab{min-height:92px;display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;gap:10px;padding:16px 18px;cursor:pointer;font-family:inherit;text-align:left;border-radius:2px;background:var(--paper);color:var(--text-dark);border:1px solid var(--cream-line);border-top:3px solid var(--c);transition:background .2s,color .2s}
+.tab .n{font-family:var(--display);font-weight:800;font-size:30px;line-height:1;color:var(--c)}
+.tab .t{font-family:var(--display);font-weight:700;font-size:17px;line-height:1.15;letter-spacing:.05em;text-transform:uppercase}
+.tab[aria-selected="true"]{background:var(--c);color:#fff;border-color:var(--c)}
+.tab[aria-selected="true"] .n{color:#fff}
+.unit{background:var(--paper);border:1px solid #E2DDD1;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr)}
+.unit-media{position:relative;min-height:360px;background:var(--black)}
+.unit-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.unit-num{position:absolute;left:0;top:0;padding:14px 20px;background:var(--c);color:#fff;font-family:var(--display);font-weight:800;font-size:40px;line-height:1}
+.unit-body{padding:44px;display:flex;flex-direction:column;gap:22px}
+.unit-body h3{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(30px,3.4vw,44px);line-height:1;text-transform:uppercase;color:var(--c)}
+.unit-body .rule{width:56px;background:var(--c)}
+.unit-desc{margin:0;font-size:18px;line-height:1.6;color:var(--body-dark)}
+.unit-cols{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:28px 40px}
+.unit h4{margin:0 0 12px;font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:.1em;text-transform:uppercase}
+.checks{margin:0;padding:0;list-style:none}
+.checks li{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid #ECE8DE;font-size:16px;line-height:1.4;color:var(--body-dark)}
+.checks svg{width:18px;height:18px;flex:none;margin-top:2px;fill:none;stroke:var(--c);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.probs{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.probs li{padding:8px 12px;background:var(--black);color:var(--text-light);font-size:14px;font-weight:500;line-height:1.3;border-left:3px solid var(--c)}
+.closing{margin:4px 0 0;padding:18px 20px;background:var(--cream);font-size:16px;line-height:1.55;color:var(--body-dark);border-left:3px solid var(--gold-mid)}
+.joint{display:flex;align-items:center;gap:20px 28px;margin-top:40px;padding:26px 30px;border:1px solid var(--gold-mid);background:#FFFDF8}
+.joint .round{width:56px;height:56px;background:var(--black);border:0;color:var(--gold)}
+.joint p{margin:0;font-size:19px;line-height:1.5;color:var(--body-dark)}
+.joint strong{color:var(--gold-darker)}
+
+/* CITA */
+.quote{border-top:3px solid var(--gold);text-align:center}
+.quote .wrap{max-width:1000px;display:flex;flex-direction:column;align-items:center;gap:22px;padding-top:88px;padding-bottom:88px}
+.quote svg{width:44px;height:44px;fill:var(--gold)}
+.quote p{margin:0;font-family:var(--display);font-weight:600;font-size:clamp(28px,4vw,48px);line-height:1.15}
+.quote p span{color:var(--gold)}
+
+/* PROYECTOS */
+.projects{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+.proj{background:var(--black);border:1px solid rgba(240,195,88,.2);display:flex;flex-direction:column}
+.proj figure{margin:0;overflow:hidden;height:220px}
+.proj img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.proj:hover img{transform:scale(1.04)}
+.proj-body{padding:22px 24px 26px;display:flex;flex-direction:column;gap:10px;border-top:3px solid var(--c)}
+.proj-area{font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.proj h3{margin:0;font-family:var(--display);font-weight:700;font-size:24px;line-height:1.1;text-transform:uppercase;color:var(--text-light)}
+.proj p{margin:0;font-size:15px;line-height:1.5;color:var(--muted-light2)}
+.note{margin:28px 0 0;font-size:16px;color:var(--muted-light2)}
+.note strong{color:var(--text-light)}
+.gallery-title{margin:56px 0 18px;font-family:var(--display);font-weight:700;font-size:26px;letter-spacing:.1em;text-transform:uppercase}
+.gallery-title span{color:var(--gold)}
+.gallery{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.gallery img{width:100%;height:240px;object-fit:cover}
+
+/* ALIADOS */
+.allies{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.allies li{min-height:150px;padding:24px;border:1px dashed var(--gold-soft);display:flex;flex-direction:column;justify-content:space-between;gap:16px}
+.allies li:first-child{border-style:solid}
+.allies .a{font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.allies .n{font-family:var(--display);font-weight:700;font-size:26px;text-transform:uppercase;color:var(--text-light)}
+
+/* CONTACTO */
+.contact{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px}
+.contact-copy{display:flex;flex-direction:column;gap:22px}
+.contact-copy>p{margin:0;font-size:18px;line-height:1.6;color:var(--muted-dark)}
+.contact-list{margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;font-size:17px;color:var(--body-dark)}
+.contact-list li{display:flex;gap:12px;align-items:center}
+.contact-list .ico{width:22px;height:22px;color:var(--gold-dark);stroke-width:1.8}
+.form{background:var(--paper);border:1px solid #E2DDD1;border-top:3px solid var(--gold-mid);padding:36px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 20px}
+.form label{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600;color:var(--body-dark)}
+.form .full{grid-column:1/-1}
+.form input,.form select,.form textarea{width:100%;min-height:48px;padding:0 14px;border:1px solid #C9C3B5;background:#fff;font:inherit;font-weight:400;font-size:16px;color:var(--text-dark);border-radius:2px}
+.form textarea{padding:12px 14px;resize:vertical}
+.form-foot{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px}
+.form-foot p{margin:0;font-size:14px;color:#55575C}
+.form .btn{background:var(--black);color:var(--gold);letter-spacing:.1em}
+.form-status{grid-column:1/-1;margin:0;font-size:15px;color:var(--gold-darker)}
+
+/* FOOTER */
+.site-footer{border-top:1px solid var(--gold-line);color:var(--muted-light2)}
+.site-footer .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;padding-top:48px;padding-bottom:36px}
+.site-footer img{height:88px;width:auto}
+.site-footer .tag{margin:0;font-family:var(--display);font-weight:600;font-size:16px;letter-spacing:.14em;text-transform:uppercase}
+.site-footer small{font-size:14px}
+.social{display:flex;gap:10px}
+.social a{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--gold-soft);border-radius:50%;color:var(--gold)}
+.social a:hover{background:var(--gold);color:var(--black)}
+.social svg{width:20px;height:20px}
+.light .social-light a{border-color:var(--gold-mid);color:var(--black);background:var(--paper)}
+.light .social-light a:hover{background:var(--black);color:var(--gold)}
+.form button[disabled]{opacity:.6;cursor:wait}
+.form-status.ok{color:#2E6B2A}.form-status.err{color:#B3261E}
+.hp{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:1100px){
+  .cards4,.projects,.allies{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tabs{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .gallery{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .gallery img:nth-child(n+4){height:200px}
+  .unit{grid-template-columns:1fr}
+  .unit-media{min-height:320px}
+}
+@media (max-width:900px){
+  :root{--pad-y:72px}
+  .menu-toggle{display:inline-flex}
+  .menu{position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;gap:0;padding:8px var(--gutter) 20px;background:var(--black);border-bottom:1px solid var(--gold-line);display:none}
+  .menu.open{display:flex}
+  .menu a{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+  .menu .btn{margin-top:14px;border-bottom:0}
+  .brand img{height:56px}
+  .hero-grid{grid-template-columns:1fr;gap:40px;padding-top:48px}
+  .hero-media img{height:420px}
+  .pillar-strip .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .about,.contact{grid-template-columns:1fr;gap:40px}
+}
+@media (max-width:640px){
+  :root{--pad-y:56px;--gutter:16px}
+  html{scroll-padding-top:80px}
+  .eyebrow{font-size:14px;letter-spacing:.12em}
+  .lead{font-size:17px}
+  .actions .btn{flex:1 1 100%}
+  .hero-media .frame{display:none}
+  .hero-media img{height:300px;clip-path:polygon(14% 0,100% 0,100% 100%,0 100%,0 18%)}
+  .hero-caption{position:static;max-width:none;margin-top:0}
+  .pillar-strip .wrap{grid-template-columns:1fr}
+  .pill{padding:16px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+  .pill:last-child{border-bottom:0}
+  .about-copy p{font-size:18px}
+  .feature{gap:16px}
+  .values{flex-direction:column;align-items:flex-start}
+  .chips{flex-basis:auto}
+  .chips li{font-size:14px;padding:8px 12px}
+  .sec-head{margin-bottom:32px}
+  .sec-head p{font-size:17px}
+  .cards4,.projects,.allies{grid-template-columns:1fr}
+  .pcard{padding:26px 22px}
+  /* pestañas: fila deslizable */
+  .tabs{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:8px;margin:0 calc(var(--gutter) * -1) 20px;padding:0 var(--gutter) 6px;scrollbar-width:none}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{flex:0 0 72%;min-height:84px;scroll-snap-align:start}
+  .unit-media{min-height:220px}
+  .unit-num{font-size:30px;padding:10px 16px}
+  .unit-body{padding:26px 20px 24px}
+  .unit-desc{font-size:16px}
+  .unit-cols{grid-template-columns:1fr}
+  .joint{flex-direction:column;align-items:flex-start;padding:22px 20px}
+  .joint p{font-size:17px}
+  .quote .wrap{padding-top:64px;padding-bottom:64px}
+  .proj figure{height:200px}
+  .gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gallery img,.gallery img:nth-child(n+4){height:150px}
+  .gallery img:last-child{grid-column:1/-1;height:190px}
+  .form{grid-template-columns:1fr;padding:24px 18px}
+  .form-foot .btn{width:100%}
+  .site-footer .wrap{flex-direction:column;align-items:flex-start}
+  .site-footer img{height:72px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="#inicio" aria-label="BLACKBELT GROUP — inicio"><img src="assets/logo2-dark.png" alt="BLACKBELT GROUP"></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav id="menu" class="menu" aria-label="Principal">
+      <a href="#nosotros">Nosotros</a>
+      <a href="#pilares">Pilares</a>
+      <a href="#unidades">Unidades</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#aliados">Aliados</a>
+      <a class="btn btn-gold" href="#contacto">Conversemos</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section id="inicio" class="hero dark">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Integración de conocimiento. Soluciones que generan <span>impacto</span>.</p>
+      <h1>Soluciones para <span>problemas reales.</span></h1>
+      <div class="rule"></div>
+      <p class="lead">Integramos conocimiento, tecnología e investigación con capacidades especializadas para desarrollar soluciones adaptadas a las necesidades de cada proyecto.</p>
+      <div class="actions">
+        <a class="btn btn-gold" href="#unidades">Nuestros servicios
+          <svg class="ico" style="width:20px;height:20px;stroke-width:2" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="#proyectos">Ver proyectos</a>
+      </div>
+    </div>
+    <div class="hero-media">
+      <div class="frame" aria-hidden="true"></div>
+      <img src="assets/geo-equipo-huancavelica.jpg" alt="Equipo de Blackbelt Group con cascos y chalecos junto al equipo de tomografía eléctrica en Huancavelica">
+      <div class="hero-caption">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-7.6 7-13a7 7 0 0 0-14 0c0 5.4 7 13 7 13z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <p><strong>Huancavelica, 2026.</strong> Nuestro equipo en un estudio de tomografía eléctrica.</p>
+      </div>
+    </div>
+  </div>
+  <div class="pillar-strip">
+    <div class="wrap">
+      <div class="pill"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-gear"/></svg><div><b>INGENIERÍA</b><span>Soluciones eficientes y de alto impacto.</span></div></div>
+      <div class="pill"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-code"/></svg><div><b>TECNOLOGÍA</b><span>Innovamos y automatizamos para transformar.</span></div></div>
+      <div class="pill"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-research"/></svg><div><b>INVESTIGACIÓN</b><span>Conocimiento para resolver problemas reales.</span></div></div>
+      <div class="pill"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bulb"/></svg><div><b>INNOVACIÓN</b><span>Ideas que crean valor y oportunidades.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- NOSOTROS -->
+<section id="nosotros" class="section light">
+  <div class="wrap about">
+    <div class="about-copy">
+      <h2 class="h2">¿Quiénes<br><span>somos?</span></h2>
+      <div class="rule"></div>
+      <p>Blackbelt Group es una organización orientada al desarrollo integral de <strong>soluciones para problemas reales</strong>, integrando ingeniería, investigación, tecnología y conocimiento especializado para atender las necesidades de empresas, emprendedores e iniciativas de investigación.</p>
+    </div>
+    <div>
+      <div class="feature">
+        <div class="round"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></div>
+        <div><h3>Nuestro origen</h3><p>Nacemos de la convicción de que el conocimiento solo tiene valor cuando se aplica para transformar realidades. Reunimos capacidades, experiencia y aliados estratégicos para brindar soluciones efectivas, medibles y sostenibles.</p></div>
+      </div>
+      <div class="feature">
+        <div class="round"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-people"/></svg></div>
+        <div><h3>Nuestra forma de trabajar</h3><p>Integramos metodologías, tecnología y talento especializado para comprender a fondo cada desafío y diseñar soluciones adaptadas al contexto de nuestros clientes. Trabajamos con enfoque ético, evidencia y orientación a resultados.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALORES -->
+<section class="ink" aria-labelledby="valores-t">
+  <div class="wrap values">
+    <h2 id="valores-t">Lo que nos <span>define</span></h2>
+    <ul class="chips">
+      <li>Ética e integridad</li><li>Transparencia</li><li>Evidencia y conocimiento</li><li>Cumplimiento</li><li>Excelencia</li><li>Orientación a resultados</li><li>Integración</li>
+    </ul>
+  </div>
+</section>
+
+<!-- PILARES -->
+<section id="pilares" class="section dark">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2">Nuestros<br><span>pilares</span></h2>
+      <p>Nuestros pilares representan las capacidades fundamentales que utilizamos para abordar cada problema desde la raíz y transformarlo en soluciones reales, medibles y sostenibles.</p>
+    </div>
+    <div class="cards4">
+      <article class="pcard"><div class="round"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-gear"/></svg></div><h3>Ingeniería</h3><p>Aplicamos conocimiento técnico para diseñar, optimizar y gestionar soluciones que generan impacto y eficiencia en cada proyecto.</p></article>
+      <article class="pcard"><div class="round"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-code"/></svg></div><h3>Tecnología</h3><p>Utilizamos herramientas digitales, automatización y análisis de datos para potenciar decisiones e innovar procesos continuamente.</p></article>
+      <article class="pcard"><div class="round"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-research"/></svg></div><h3>Investigación</h3><p>Generamos y aplicamos conocimiento basado en evidencia para comprender, validar y resolver problemas reales con rigor científico.</p></article>
+      <article class="pcard"><div class="round"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bulb"/></svg></div><h3>Innovación</h3><p>Desarrollamos ideas y soluciones creativas que transforman desafíos en oportunidades sostenibles y escalables.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- UNIDADES -->
+<section id="unidades" class="section light">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2">Nuestras<br><span>unidades de negocio</span></h2>
+      <p>Operamos como un grupo integrado de cinco unidades especializadas. Cada una puede desarrollarse de forma independiente, pero siempre bajo una identidad común.</p>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Unidades de negocio" id="tabs"></div>
+    <div class="unit" id="unit" role="tabpanel" aria-live="polite">
+      <div class="unit-media"><img id="u-img" src="assets/ing-productividad.jpg" alt=""><div class="unit-num" id="u-num">01.</div></div>
+      <div class="unit-body">
+        <div style="display:flex;flex-direction:column;gap:12px"><h3 id="u-name"></h3><div class="rule"></div><p class="unit-desc" id="u-desc"></p></div>
+        <div class="unit-cols">
+          <div><h4>¿Qué hacemos?</h4><ul class="checks" id="u-hacemos"></ul></div>
+          <div><h4 id="u-plabel"></h4><ul class="probs" id="u-probs"></ul></div>
+        </div>
+        <p class="closing" id="u-cierre"></p>
+      </div>
+    </div>
+    <div class="joint">
+      <div class="round"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-people"/></svg></div>
+      <p>Cuando un proyecto requiere capacidades de distintas áreas, las unidades pueden integrarse para desarrollar una <strong>solución conjunta</strong> que genera mayor valor para nuestros clientes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CITA -->
+<section class="dark quote" aria-label="Lema">
+  <div class="wrap">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18v-5.5C4 8.4 6.2 6 10 5l.7 1.6C8.6 7.4 7.7 8.7 7.6 11H10v7H4zm10 0v-5.5c0-4.1 2.2-6.5 6-7.5l.7 1.6c-2.1.8-3 2.1-3.1 4.4H20v7h-6z"/></svg>
+    <p>Si lo puedes imaginar, lo puedes crear;<br>y si lo puedes crear, <span>lo puedes conquistar.</span></p>
+  </div>
+</section>
+
+<!-- PROYECTOS -->
+<section id="proyectos" class="section ink">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2">Proyectos<br><span>en campo</span></h2>
+      <p>Geofísica, ingeniería industrial, investigación ambiental y mejora de emprendimientos: trabajo real, con equipos en terreno, planta y laboratorio.</p>
+    </div>
+    <div class="projects">
+      <article class="proj" style="--c:#2E6B2A"><figure><img src="assets/proj-huancavelica.jpg" alt="Tendido de una línea de tomografía en un valle de Huancavelica" loading="lazy"></figure><div class="proj-body"><span class="proj-area">Ingeniería geofísica</span><h3>Tomografía en Huancavelica</h3><p>Estudio de tomografía eléctrica para caracterizar el subsuelo en terreno andino.</p></div></article>
+      <article class="proj" style="--c:#2E6B2A"><figure><img src="assets/geo-jaen.jpg" alt="Equipo de resistividad y cableado desplegado en campo" loading="lazy"></figure><div class="proj-body"><span class="proj-area">Ingeniería geofísica</span><h3>Tomografía en Jaén, Cajamarca</h3><p>Despliegue de equipos de resistividad y adquisición de datos en campo.</p></div></article>
+      <article class="proj" style="--c:#4A2577"><figure><img src="assets/proj-ambiental.jpg" alt="Equipo de medición de pH y muestras de agua en laboratorio" loading="lazy"></figure><div class="proj-body"><span class="proj-area">Investigación ambiental</span><h3>Expedición ambiental</h3><p>Muestreo en campo y análisis de laboratorio para investigación ambiental.</p></div></article>
+      <article class="proj" style="--c:#4A2577"><figure><img src="assets/amb-multiparametro.jpg" alt="Maletín con medidor multiparámetro y sondas para calidad de agua" loading="lazy"></figure><div class="proj-body"><span class="proj-area">Ambiente y calidad</span><h3>Calidad de agua</h3><p>Medición de parámetros en campo y análisis de laboratorio, como pH y nitrógeno amoniacal.</p></div></article>
+      <article class="proj" style="--c:#4A2577"><figure><img src="assets/amb-rio.jpg" alt="Torre de captación sobre un río de aguas oscuras" loading="lazy"></figure><div class="proj-body"><span class="proj-area">Ambiente y calidad</span><h3>Muestreo en cuerpos de agua</h3><p>Toma de muestras en ríos y quebradas para evaluación ambiental.</p></div></article>
+      <article class="proj" style="--c:#C2550A"><figure><img src="assets/proj-platano.jpg" alt="Plátano en proceso de secado dentro de un invernadero" loading="lazy"></figure><div class="proj-body"><span class="proj-area">Ingeniería industrial · Alimentos</span><h3>Deshidratado de plátano</h3><p>Proceso de deshidratado para la industria de alimentos.</p></div></article>
+      <article class="proj" style="--c:#C2550A"><figure><img src="assets/proj-pimenton.jpg" alt="Pimientos rojos frescos sobre una mesa de laboratorio" loading="lazy"></figure><div class="proj-body"><span class="proj-area">Ingeniería industrial · Alimentos</span><h3>Deshidratado de pimentón</h3><p>Desarrollo y control del proceso de deshidratado de pimentón.</p></div></article>
+      <article class="proj" style="--c:#155E6B"><figure><img src="assets/proj-aguaymanto.jpg" alt="Caja de aguaymantos frescos listos para procesar" loading="lazy"></figure><div class="proj-body"><span class="proj-area">Mejora de emprendimiento · Alimentos</span><h3>Deshidratado de aguaymanto</h3><p>Acompañamiento a un emprendimiento en su proceso productivo.</p></div></article>
+    </div>
+    <p class="note">También acompañamos a <strong>Munay</strong> en la mejora de su producción de alfajores, como parte de nuestros proyectos de emprendimiento.</p>
+    <h3 class="gallery-title">Galería de <span>campo</span></h3>
+    <div class="gallery">
+      <img src="assets/geo-medicion.jpg" alt="Especialista registrando datos con un equipo geofísico amarillo en el suelo" loading="lazy">
+      <img src="assets/amb-quebrada.jpg" alt="Quebrada con agua de color rojizo rodeada de vegetación tropical" loading="lazy">
+      <img src="assets/amb-nitrogeno.jpg" alt="Kit colorimétrico para análisis de nitrógeno amoniacal" loading="lazy">
+      <img src="assets/amb-muestras.jpg" alt="Muestras de agua en botellas sobre una mesa de laboratorio" loading="lazy">
+      <img src="assets/geo-equipo-resistividad.jpg" alt="Equipo de resistividad eléctrica conectado en campo" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ALIADOS -->
+<section id="aliados" class="section dark" style="border-top:1px solid var(--gold-line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2">Aliados<br><span>estratégicos</span></h2>
+      <p>Reunimos capacidades, experiencia y aliados estratégicos para brindar soluciones efectivas, medibles y sostenibles.</p>
+    </div>
+    <ul class="allies">
+      <li><span class="a">Geofísica</span><span class="n">[Nombre del aliado]</span></li>
+      <li><span class="a">[Área]</span><span class="n">[Nombre del aliado]</span></li>
+      <li><span class="a">[Área]</span><span class="n">[Nombre del aliado]</span></li>
+      <li><span class="a">[Área]</span><span class="n">[Nombre del aliado]</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="section light">
+  <div class="wrap contact">
+    <div class="contact-copy">
+      <h2 class="h2">Cuéntanos tu<br><span>desafío</span></h2>
+      <div class="rule"></div>
+      <p>Analizamos la situación actual, identificamos oportunidades y desarrollamos soluciones orientadas a resultados medibles.</p>
+      <ul class="contact-list">
+        <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-7.6 7-13a7 7 0 0 0-14 0c0 5.4 7 13 7 13z"/><circle cx="12" cy="9" r="2.5"/></svg>Lima · Perú</li>
+        <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><a href="mailto:blackbelt.ingenieria@gmail.com">blackbelt.ingenieria@gmail.com</a></li>
+        <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>[TELÉFONO / WHATSAPP]</li>
+      </ul>
+      <div class="social social-light" aria-label="Redes sociales">
+        <a href="https://www.facebook.com/share/1CFyURwj4t/" target="_blank" rel="noopener" aria-label="Facebook de Blackbelt Group"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-fb"/></svg></a>
+        <a href="https://www.instagram.com/blackbelt.ingenieria" target="_blank" rel="noopener" aria-label="Instagram de Blackbelt Group"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-ig"/></svg></a>
+        <a href="https://www.tiktok.com/@blackbelt_group" target="_blank" rel="noopener" aria-label="TikTok de Blackbelt Group"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tt"/></svg></a>
+      </div>
+    </div>
+    <form class="form" id="form" aria-label="Formulario de contacto" action="https://formsubmit.co/blackbelt.ingenieria@gmail.com" method="POST" novalidate>
+      <input type="hidden" name="_subject" value="Nuevo mensaje desde la web de Blackbelt Group">
+      <input type="hidden" name="_template" value="table">
+      <label class="hp" aria-hidden="true">No llenar<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
+      <label>Nombre<input type="text" name="nombre" autocomplete="name" required></label>
+      <label>Empresa<input type="text" name="empresa" autocomplete="organization"></label>
+      <label>Correo electrónico<input type="email" name="correo" autocomplete="email" required></label>
+      <label>Unidad de interés
+        <select name="unidad">
+          <option>Ingeniería y Productividad</option>
+          <option>Tecnología y Transformación Digital</option>
+          <option>Investigación y Desarrollo</option>
+          <option>Ingeniería Especializada (Geofísica)</option>
+          <option>Emprendimiento y Desarrollo Empresarial</option>
+          <option>Solución conjunta / no estoy seguro</option>
+        </select>
+      </label>
+      <label class="full">¿Qué problema quieres resolver?<textarea name="mensaje" rows="5" required></textarea></label>
+      <div class="form-foot">
+        <p>Te respondemos en [PLAZO DE RESPUESTA].</p>
+        <button class="btn" type="submit">Enviar mensaje</button>
+      </div>
+      <p class="form-status" id="form-status" role="status"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer dark">
+  <div class="wrap">
+    <img src="assets/logo2-dark.png" alt="BLACKBELT GROUP">
+    <p class="tag">Ingeniería · Tecnología · Investigación · Innovación</p>
+    <div class="social" aria-label="Redes sociales">
+      <a href="https://www.facebook.com/share/1CFyURwj4t/" target="_blank" rel="noopener" aria-label="Facebook de Blackbelt Group"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-fb"/></svg></a>
+      <a href="https://www.instagram.com/blackbelt.ingenieria" target="_blank" rel="noopener" aria-label="Instagram de Blackbelt Group"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-ig"/></svg></a>
+      <a href="https://www.tiktok.com/@blackbelt_group" target="_blank" rel="noopener" aria-label="TikTok de Blackbelt Group"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-tt"/></svg></a>
+    </div>
+    <small>© 2026 Blackbelt Group · Lima, Perú · <a href="mailto:blackbelt.ingenieria@gmail.com">blackbelt.ingenieria@gmail.com</a></small>
+  </div>
+</footer>
+
+<!-- iconos reutilizables -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4M9 8l-2 2 2 2M15 8l2 2-2 2"/></symbol>
+  <symbol id="i-research" viewBox="0 0 24 24"><circle cx="10" cy="10" r="7"/><path d="M21 21l-6-6M7 12.5v-1.5M10 12.5V8M13 12.5V10"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M13.5 21v-7.5H16l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21h3z"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-tt" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M16.6 3c.4 2.2 1.8 3.7 4 4v3.1c-1.5.1-2.9-.4-4-1.2v6.3A5.9 5.9 0 1 1 10.7 9.3v3.2a2.8 2.8 0 1 0 2.8 2.8V3h3.1z"/></symbol>
+  <symbol id="i-people" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15 14.5c3 0 6 2 6 5.5"/></symbol>
+</svg>
+
+<script>
+(function () {
+  // menú móvil
+  var toggle = document.querySelector('.menu-toggle');
+  var menu = document.getElementById('menu');
+  function setMenu(open) {
+    menu.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+  }
+  toggle.addEventListener('click', function () { setMenu(!menu.classList.contains('open')); });
+  menu.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
+  window.addEventListener('resize', function () { if (window.innerWidth > 900) setMenu(false); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && menu.classList.contains('open')) { setMenu(false); toggle.focus(); }
+  });
+
+  // unidades de negocio
+  var units = [
+    { num: '01', name: 'Ingeniería y Productividad', color: '#C2550A', img: 'assets/ing-productividad.jpg', alt: 'Ingeniero revisando indicadores en una planta industrial',
+      desc: 'Mejoramos procesos para lograr operaciones más eficientes y productivas.',
+      hacemos: ['Mejora y optimización de procesos', 'Análisis de productividad', 'Lean Manufacturing', 'Gestión de calidad', 'Indicadores de gestión', 'Estudios de tiempos y movimientos'],
+      plabel: '¿Qué problemas abordamos?', probs: ['Baja productividad', 'Desperdicios', 'Costos elevados', 'Retrasos', 'Problemas de calidad'],
+      cierre: 'Analizamos la situación actual, identificamos oportunidades y desarrollamos soluciones orientadas a resultados medibles.' },
+    { num: '02', name: 'Tecnología y Transformación Digital', color: '#1E3A8A', img: 'assets/tecnologia.jpg', alt: 'Laptop con un dashboard ejecutivo de ventas',
+      desc: 'Transformamos datos e ideas en soluciones digitales que optimizan procesos, automatizan tareas y apoyan decisiones inteligentes.',
+      hacemos: ['Análisis y visualización de datos', 'Dashboards e inteligencia de negocio', 'Automatización de procesos', 'Desarrollo de sistemas y aplicaciones', 'Integración y gestión de datos', 'Soluciones digitales a medida'],
+      plabel: '¿Qué problemas abordamos?', probs: ['Información dispersa', 'Reportes manuales', 'Procesos lentos', 'Falta de visibilidad', 'Decisiones sin datos'],
+      cierre: 'Usamos tecnología para convertir información en valor, automatizar procesos y mejorar la toma de decisiones.' },
+    { num: '03', name: 'Investigación y Desarrollo', color: '#4A2577', img: 'assets/id.jpg', alt: 'Microscopio y matraces en un laboratorio',
+      desc: 'Generamos conocimiento y desarrollamos soluciones aplicadas que resuelven problemas reales y crean valor para la toma de decisiones y la innovación.',
+      hacemos: ['Investigación aplicada', 'Estudios y análisis técnicos', 'Desarrollo experimental', 'Prototipos y validación de soluciones', 'Análisis e interpretación de datos', 'Asesoría en trabajos de investigación'],
+      plabel: '¿Qué problemas abordamos?', probs: ['Falta de información confiable', 'Problemas complejos sin soluciones claras', 'Decisiones sin sustento técnico', 'Necesidad de innovación', 'Resultados no validados'],
+      cierre: 'Aplicamos metodología y rigor técnico para transformar ideas en conocimiento, validar soluciones y generar impacto real.' },
+    { num: '04', name: 'Ingeniería Especializada: Geofísica', short: 'Ingeniería Especializada · Geofísica', color: '#2E6B2A', img: 'assets/geo-equipo-resistividad.jpg', alt: 'Equipo de resistividad eléctrica abierto y conectado en campo',
+      desc: 'Aplicamos métodos geofísicos para estudiar las características del subsuelo y generar información técnica confiable que apoye proyectos de ingeniería, construcción, exploración y evaluación del terreno. Trabajamos junto a aliados especializados en geofísica.',
+      hacemos: ['Métodos sísmicos: refracción 2D y 3D, MASW, Down-Hole y Cross-Hole', 'Métodos geoeléctricos: tomografía de resistividad, polarización inducida, SEV', 'Métodos electromagnéticos: GPR, TEM multioffset, FDEM', 'Ensayos de resistividad para puesta a tierra', 'Microtremoraciones (Nakamura)', 'Instrumentación y monitoreo sísmico'],
+      plabel: '¿Qué problemas abordamos?', probs: ['Desconocimiento del subsuelo', 'Riesgos geotécnicos y deslizamientos', 'Ubicación de acuíferos y recursos hídricos', 'Cavidades, fracturas e inestabilidad', 'Exploración de recursos naturales', 'Seguridad en obras de ingeniería'],
+      cierre: 'Integramos conocimiento, tecnología y especialistas para entregar información geofísica confiable que reduce incertidumbre y fortalece la toma de decisiones.' },
+    { num: '05', name: 'Emprendimiento y Desarrollo Empresarial', color: '#155E6B', img: 'assets/emprendimiento.jpg', alt: 'Equipo de emprendedores trabajando juntos en una mesa',
+      desc: 'Impulsamos ideas y negocios para que crezcan, se fortalezcan y generen valor sostenible en el mercado. Acompañamos a emprendedores y empresas en cada etapa de su desarrollo.',
+      hacemos: ['Ideación y validación', 'Modelo de negocio', 'Planificación estratégica', 'Gestión y operación', 'Marketing y ventas', 'Capacitación empresarial'],
+      plabel: 'Acompañamos cada etapa', probs: ['1 · Explorar', '2 · Planificar', '3 · Lanzar', '4 · Crecer', '5 · Consolidar'],
+      cierre: 'Nuestro objetivo es que más ideas se conviertan en empresas exitosas y que más empresas consoliden su crecimiento en el tiempo.' }
+  ];
+  var check = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>';
+  var tabsEl = document.getElementById('tabs');
+  var unitEl = document.getElementById('unit');
+  function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+
+  units.forEach(function (u, i) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'tab'; b.id = 'tab-' + i;
+    b.setAttribute('role', 'tab'); b.setAttribute('aria-controls', 'unit');
+    b.style.setProperty('--c', u.color);
+    b.innerHTML = '<span class="n">' + u.num + '</span><span class="t">' + esc(u.short || u.name) + '</span>';
+    b.addEventListener('click', function () { show(i, true); });
+    b.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        var n = (i + (e.key === 'ArrowRight' ? 1 : units.length - 1)) % units.length;
+        show(n, true); document.getElementById('tab-' + n).focus();
+      }
+    });
+    tabsEl.appendChild(b);
+  });
+
+  function show(i, scrollTab) {
+    var u = units[i];
+    Array.prototype.forEach.call(tabsEl.children, function (t, k) {
+      t.setAttribute('aria-selected', k === i ? 'true' : 'false');
+      t.tabIndex = k === i ? 0 : -1;
+    });
+    unitEl.style.setProperty('--c', u.color);
+    unitEl.setAttribute('aria-labelledby', 'tab-' + i);
+    var img = document.getElementById('u-img'); img.src = u.img; img.alt = u.alt;
+    document.getElementById('u-num').textContent = u.num + '.';
+    document.getElementById('u-name').textContent = u.name;
+    document.getElementById('u-desc').textContent = u.desc;
+    document.getElementById('u-plabel').textContent = u.plabel;
+    document.getElementById('u-cierre').textContent = u.cierre;
+    document.getElementById('u-hacemos').innerHTML = u.hacemos.map(function (h) { return '<li>' + check + '<span>' + esc(h) + '</span></li>'; }).join('');
+    document.getElementById('u-probs').innerHTML = u.probs.map(function (p) { return '<li>' + esc(p) + '</li>'; }).join('');
+    if (scrollTab) {
+      var t = document.getElementById('tab-' + i);
+      tabsEl.scrollTo({ left: t.offsetLeft - tabsEl.offsetLeft - 16, behavior: 'smooth' });
+    }
+  }
+  show(0, false);
+
+  // formulario: envío por FormSubmit al correo de la empresa
+  var form = document.getElementById('form');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var f = form, st = document.getElementById('form-status'), btn = f.querySelector('button[type=submit]');
+    st.className = 'form-status';
+    if (!f.nombre.value.trim() || !f.correo.value.trim() || !f.correo.checkValidity() || !f.mensaje.value.trim()) {
+      st.classList.add('err');
+      st.textContent = 'Completa tu nombre, un correo válido y tu mensaje.';
+      return;
+    }
+    if (f._honey.value) return;
+    var data = {
+      _subject: f._subject.value, _template: 'table', _replyto: f.correo.value.trim(),
+      Nombre: f.nombre.value.trim(), Empresa: f.empresa.value.trim() || '—', Correo: f.correo.value.trim(),
+      'Unidad de interés': f.unidad.value, Mensaje: f.mensaje.value.trim()
+    };
+    btn.disabled = true; btn.textContent = 'Enviando…'; st.textContent = '';
+    fetch('https://formsubmit.co/ajax/blackbelt.ingenieria@gmail.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (res) {
+        if (!res.ok || String(res.j.success) !== 'true') throw new Error(res.j.message || 'error');
+        st.classList.add('ok');
+        st.textContent = '¡Gracias, ' + data.Nombre + '! Recibimos tu mensaje y te responderemos pronto.';
+        f.reset();
+      })
+      .catch(function () {
+        st.classList.add('err');
+        st.innerHTML = 'No pudimos enviar el mensaje. Escríbenos directamente a <a href="mailto:blackbelt.ingenieria@gmail.com">blackbelt.ingenieria@gmail.com</a>.';
+      })
+      .then(function () { btn.disabled = false; btn.textContent = 'Enviar mensaje'; });
+  });
+})();
+</script>
+</body>
+</html>
