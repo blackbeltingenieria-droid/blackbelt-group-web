@@ -80,7 +80,6 @@
       "@type": "FAQPage",
       "mainEntity": [
         { "@type": "Question", "name": "¿Qué servicios ofrece Blackbelt Group?", "acceptedAnswer": { "@type": "Answer", "text": "Trabajamos con cinco unidades de negocio: Ingeniería y Productividad, Tecnología y Transformación Digital, Investigación y Desarrollo, Ingeniería Especializada (que incluye especialidades como la geofísica) y Emprendimiento y Desarrollo Empresarial. Cuando un proyecto lo requiere, las unidades se integran en una solución conjunta." } },
-        { "@type": "Question", "name": "¿Qué tipo de investigación realizan?", "acceptedAnswer": { "@type": "Answer", "text": "Hacemos investigación aplicada: diagnósticos y estudios de mercado, trabajo de campo (encuestas, focus group y pruebas de campo), estudios técnicos y análisis de datos para tomar decisiones con evidencia. Por ejemplo, el diagnóstico del transporte urbano en Huánuco para el proyecto ZIGO." } },
         { "@type": "Question", "name": "¿Qué estudios de geofísica realizan?", "acceptedAnswer": { "@type": "Answer", "text": "La geofísica es una de las especialidades de nuestra unidad de Ingeniería Especializada. Realizamos estudios con métodos sísmicos (refracción, MASW, Down-Hole, Cross-Hole, microtremoraciones), geoeléctricos (tomografía de resistividad eléctrica, polarización inducida, sondaje eléctrico vertical, resistividad para puesta a tierra) y electromagnéticos (georradar GPR, TEM, FDEM), junto a aliados especializados." } },
         { "@type": "Question", "name": "¿En qué zonas del Perú trabajan?", "acceptedAnswer": { "@type": "Answer", "text": "Nuestra sede está en Lima, pero trabajamos en todo el Perú. Hemos realizado pruebas de campo en Huancavelica y Jaén (Cajamarca), y actualmente desarrollamos el proyecto ZIGO en Huánuco." } },
         { "@type": "Question", "name": "¿Apoyan a MYPEs y emprendedores?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Apoyamos a MYPEs, emprendedores y empresas en cada etapa: explorar, planificar, lanzar, crecer y consolidar, con modelo de negocio, planificación estratégica, gestión, marketing y capacitación empresarial." } },
@@ -269,8 +268,14 @@ a{color:var(--gold);text-decoration:none}a:hover{color:var(--gold-hover)}
 .proj-area{font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
 .proj h3{margin:0;font-family:var(--display);font-weight:700;font-size:24px;line-height:1.1;text-transform:uppercase;color:var(--text-light)}
 .proj p{margin:0;font-size:15px;line-height:1.5;color:var(--muted-light2)}
-.note{margin:28px 0 0;font-size:16px;color:var(--muted-light2)}
-.note strong{color:var(--text-light)}
+.proj-feature{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}
+.proj-feature figure{height:auto;min-height:340px;background:#00205D}
+.proj-feature .proj-body{border-top:0;border-left:3px solid var(--c);padding:36px 40px;justify-content:center;gap:14px}
+.proj-feature h3{font-size:clamp(28px,3vw,38px)}
+.proj-feature p{font-size:16px}
+.live{display:inline-flex;align-items:center;gap:6px;margin-left:10px;padding:3px 9px;background:#FFDD00;color:#00205D;letter-spacing:.1em}
+.live .dot{width:7px;height:7px;border-radius:50%;background:#00205D;animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
 .gallery-title{margin:56px 0 18px;font-family:var(--display);font-weight:700;font-size:26px;letter-spacing:.1em;text-transform:uppercase}
 .gallery-title span{color:var(--gold)}
 .gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
@@ -278,59 +283,11 @@ a{color:var(--gold);text-decoration:none}a:hover{color:var(--gold-hover)}
 .gallery img{width:100%;height:240px;object-fit:cover;transition:transform .8s var(--ease),filter .5s}
 .gallery figure:hover img{transform:scale(1.08)}
 
-/* PILAR DESTACADO */
-.pcard.featured{background:linear-gradient(180deg,rgba(240,195,88,.14),rgba(240,195,88,.03) 60%),var(--card);border-color:rgba(240,195,88,.6)}
-.pcard .badge{position:absolute;top:-1px;right:18px;transform:translateY(-50%);background:var(--gold);color:var(--black);font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px}
-.pcard .more{margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:.08em;text-transform:uppercase}
-.pcard .more .arrow{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s var(--ease)}
-.pcard .more:hover .arrow{transform:translateX(4px)}
-
 /* ESPECIALIDAD (Ingeniería Especializada) */
 .sub{background:var(--cream);border-left:3px solid var(--c);padding:16px 18px 18px}
 .sub .sub-tag{display:inline-block;font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--c);margin-bottom:4px}
 .sub h4{margin-bottom:6px}
 .sub p{margin:0 0 12px;font-size:15px;line-height:1.5;color:var(--body-dark)}
-
-/* INVESTIGACIÓN */
-.steps{list-style:none;margin:0 0 56px;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;counter-reset:s;position:relative}
-.steps li{position:relative;padding:28px 24px 0 0}
-.steps li::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--gold-line)}
-.steps li::after{content:"";position:absolute;left:0;top:-5px;width:12px;height:12px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 5px rgba(240,195,88,.15)}
-.steps .sn{font-family:var(--display);font-weight:800;font-size:44px;line-height:1;color:var(--gold)}
-.steps h3{margin:8px 0 6px;font-family:var(--display);font-weight:700;font-size:24px;letter-spacing:.04em;text-transform:uppercase}
-.steps p{margin:0;font-size:16px;line-height:1.55;color:var(--muted-light)}
-.js .steps li.reveal::before{transform:scaleX(0);transform-origin:left;transition:transform 1s var(--ease) calc(var(--d,0s) + .2s)}
-.js .steps li.reveal.in::before{transform:scaleX(1)}
-
-/* ZIGO */
-.zigo{--zn:#00205D;--zy:#FFDD00;position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:40px;align-items:center;background:radial-gradient(120% 90% at 100% 0,#0A3A8C 0,var(--zn) 55%);border:1px solid rgba(255,221,0,.35);padding:48px}
-.zigo::after{content:"";position:absolute;right:-120px;bottom:-120px;width:360px;height:360px;border-radius:50%;border:2px dashed rgba(255,221,0,.18);pointer-events:none}
-.zigo-copy{position:relative;z-index:1;display:flex;flex-direction:column;gap:16px;color:#E8EDF7}
-.zigo-badge{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;background:var(--zy);color:var(--zn);font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px}
-.zigo-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--zn);animation:pulse 1.6s ease-in-out infinite}
-.zigo-logo{width:220px;height:auto;border-radius:6px}
-.zigo h3{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(30px,3.4vw,42px);line-height:1;text-transform:uppercase;color:#fff}
-.zigo-copy>p{margin:0;font-size:17px;line-height:1.6}
-.zigo-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
-.zigo h4{margin:0 0 8px;font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:.1em;text-transform:uppercase;color:var(--zy)}
-.zigo ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
-.zigo ul li{position:relative;padding-left:16px;font-size:15px;line-height:1.45}
-.zigo ul li::before{content:"";position:absolute;left:0;top:.55em;width:7px;height:7px;background:var(--zy);transform:rotate(45deg)}
-.zigo-stats{margin:4px 0 0;display:flex;flex-wrap:wrap;gap:12px}
-.zigo-stats div{flex:1 1 160px;border:1px solid rgba(255,221,0,.35);padding:12px 14px}
-.zigo-stats dt{font-family:var(--display);font-weight:800;font-size:34px;line-height:1;color:var(--zy)}
-.zigo-stats dd{margin:4px 0 0;font-size:14px;color:#C9D3E8}
-.zigo-src{margin:0;font-size:12px;color:#A9B7D6}
-.phones{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;align-items:start}
-.phone{margin:0;border-radius:22px;padding:6px;background:#0B0F13;box-shadow:0 24px 40px -18px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.08)}
-.phone img{width:100%;height:auto;border-radius:16px}
-.phone:nth-child(even){margin-top:48px}
-.js .zigo.in .phone{animation:float 6s ease-in-out infinite}
-.js .zigo.in .phone:nth-child(2){animation-delay:-1.5s}
-.js .zigo.in .phone:nth-child(3){animation-delay:-3s}
-.js .zigo.in .phone:nth-child(4){animation-delay:-4.5s}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
 
 /* FAQ */
 .faq{max-width:900px}
@@ -431,10 +388,10 @@ a{color:var(--gold);text-decoration:none}a:hover{color:var(--gold-hover)}
   .cards4,.projects,.allies{grid-template-columns:repeat(2,minmax(0,1fr))}
   .tabs{grid-template-columns:repeat(3,minmax(0,1fr))}
   .gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .steps{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:32px}
-  .zigo{grid-template-columns:1fr;padding:36px}
-  .phones{max-width:640px}
   .unit{grid-template-columns:1fr}
+  .proj-feature{grid-template-columns:1fr}
+  .proj-feature figure{min-height:0;height:320px}
+  .proj-feature .proj-body{border-left:0;border-top:3px solid var(--c)}
   .unit-media{min-height:320px}
   .foot{grid-template-columns:1fr 1fr}
   .foot>div:first-child{grid-column:1/-1}
@@ -489,16 +446,10 @@ a{color:var(--gold);text-decoration:none}a:hover{color:var(--gold-hover)}
   .joint{flex-direction:column;align-items:flex-start;padding:22px 20px}
   .joint p{font-size:17px}
   .quote .wrap{padding-top:64px;padding-bottom:64px}
-  .proj figure{height:200px}
+  .proj figure,.proj-feature figure{height:200px}
+  .proj-feature .proj-body{padding:22px 20px 26px}
+  .live{margin:6px 0 0;display:flex;width:max-content}
   .gallery img{height:150px}
-  .steps{grid-template-columns:1fr;row-gap:28px;margin-bottom:40px}
-  .zigo{padding:26px 18px;gap:28px}
-  .zigo-logo{width:180px}
-  .zigo-cols{grid-template-columns:1fr}
-  .phones{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:0 -18px;padding:4px 18px 12px;scrollbar-width:none}
-  .phones::-webkit-scrollbar{display:none}
-  .phone{flex:0 0 58%;scroll-snap-align:center}
-  .phone:nth-child(even){margin-top:0}
   .faq summary{font-size:19px;padding:18px 0}
   .form{grid-template-columns:1fr;padding:24px 18px}
   .form-foot .btn{width:100%}
@@ -527,9 +478,9 @@ a{color:var(--gold);text-decoration:none}a:hover{color:var(--gold-hover)}
     <nav id="menu" class="menu" aria-label="Principal">
       <a href="#nosotros">Nosotros</a>
       <a href="#servicios">Servicios</a>
-      <a href="#investigacion">Investigación</a>
       <a href="#proyectos">Proyectos</a>
       <a href="#preguntas">Preguntas</a>
+      <a href="#aliados">Aliados</a>
       <a class="btn btn-gold" href="#contacto" data-track="cta_header">Conversemos</a>
     </nav>
   </div>
@@ -610,7 +561,7 @@ a{color:var(--gold);text-decoration:none}a:hover{color:var(--gold-hover)}
     <div class="cards4">
       <article class="pcard reveal"><div class="round"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-gear"/></svg></div><h3>Ingeniería</h3><p>Aplicamos conocimiento técnico para diseñar, optimizar y gestionar soluciones que generan impacto y eficiencia en cada proyecto.</p></article>
       <article class="pcard reveal" style="--d:.08s"><div class="round"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-code"/></svg></div><h3>Tecnología</h3><p>Utilizamos herramientas digitales, automatización y análisis de datos para potenciar decisiones e innovar procesos continuamente.</p></article>
-      <article class="pcard featured reveal" style="--d:.16s"><span class="badge">Nuestra base</span><div class="round"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-research"/></svg></div><h3>Investigación</h3><p>Generamos y aplicamos conocimiento basado en evidencia para comprender, validar y resolver problemas reales con rigor científico.</p><a class="more" href="#investigacion">Cómo investigamos <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></article>
+      <article class="pcard reveal" style="--d:.16s"><div class="round"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-research"/></svg></div><h3>Investigación</h3><p>Generamos y aplicamos conocimiento basado en evidencia para comprender, validar y resolver problemas reales con rigor científico.</p></article>
       <article class="pcard reveal" style="--d:.24s"><div class="round"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bulb"/></svg></div><h3>Innovación</h3><p>Desarrollamos ideas y soluciones creativas que transforman desafíos en oportunidades sostenibles y escalables.</p></article>
     </div>
   </div>
@@ -704,52 +655,6 @@ a{color:var(--gold);text-decoration:none}a:hover{color:var(--gold-hover)}
   </div>
 </section>
 
-<!-- INVESTIGACIÓN -->
-<section id="investigacion" class="section dark research">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2 class="h2 reveal">La investigación<br><span>es nuestra base</span></h2>
-      <p class="reveal" style="--d:.1s">Antes de proponer una solución, investigamos. Combinamos trabajo de campo y análisis de datos para que cada decisión tenga sustento.</p>
-    </div>
-    <ol class="steps">
-      <li class="reveal"><span class="sn">01</span><h3>Diagnóstico</h3><p>Entendemos el problema, el mercado y el contexto.</p></li>
-      <li class="reveal" style="--d:.08s"><span class="sn">02</span><h3>Trabajo de campo</h3><p>Encuestas, focus group y pruebas de campo.</p></li>
-      <li class="reveal" style="--d:.16s"><span class="sn">03</span><h3>Análisis</h3><p>Procesamos e interpretamos los datos.</p></li>
-      <li class="reveal" style="--d:.24s"><span class="sn">04</span><h3>Solución validada</h3><p>Diseñamos, probamos y ajustamos con evidencia.</p></li>
-    </ol>
-
-    <article id="zigo" class="zigo reveal" aria-labelledby="zigo-t">
-      <div class="zigo-copy">
-        <span class="zigo-badge"><span class="dot" aria-hidden="true"></span>Proyecto en curso · Huánuco</span>
-        <img class="zigo-logo" src="assets/zigo-logo.jpg" alt="ZIGO, tu destino, más cerca. Huánuco" width="640" height="311" loading="lazy">
-        <h3 id="zigo-t">ZIGO: movilidad para Huánuco</h3>
-        <p>Estamos desarrollando ZIGO, una app de movilidad para Huánuco, Amarilis y Pillco Marca. Es un ejemplo de cómo trabajamos: primero investigamos y luego construimos la solución.</p>
-        <div class="zigo-cols">
-          <div>
-            <h4>Investigación</h4>
-            <ul><li>Diagnóstico preliminar del transporte urbano: mercado, competencia, prueba de campo y viabilidad</li><li>Encuestas a pasajeros y a conductores de motokar</li><li>Focus group con usuarios</li></ul>
-          </div>
-          <div>
-            <h4>Tecnología</h4>
-            <ul><li>App para pedir mototaxi, carro o carga pesada</li><li>El pasajero ofrece su tarifa y los conductores aceptan o contraofertan</li><li>Botón SOS y ubicación compartida</li><li>Modo conductor</li></ul>
-          </div>
-        </div>
-        <dl class="zigo-stats">
-          <div><dt>248 057</dt><dd>habitantes en el ámbito del estudio</dd></div>
-          <div><dt>13 150</dt><dd>trimóviles registrados en la ciudad</dd></div>
-        </dl>
-        <p class="zigo-src">Fuentes del diagnóstico: INEI, Censos Nacionales 2025; Gerencia de Transportes MPHCO.</p>
-      </div>
-      <div class="phones" aria-label="Pantallas de la app ZIGO">
-        <figure class="phone"><img src="assets/zigo-inicio.jpg" alt="Pantalla de inicio de ZIGO con opciones para ingresar" width="447" height="968" loading="lazy"></figure>
-        <figure class="phone"><img src="assets/zigo-tarifa.jpg" alt="Pantalla donde el pasajero ofrece su tarifa para un mototaxi" width="447" height="968" loading="lazy"></figure>
-        <figure class="phone"><img src="assets/zigo-ofertas.jpg" alt="Pantalla con conductores que aceptan o contraofertan la tarifa" width="447" height="968" loading="lazy"></figure>
-        <figure class="phone"><img src="assets/zigo-sos.jpg" alt="Pantalla de ayuda con botón para llamar a la Policía y compartir ubicación" width="447" height="968" loading="lazy"></figure>
-      </div>
-    </article>
-  </div>
-</section>
-
 <!-- CITA -->
 <section class="dark quote" aria-label="Lema">
   <div class="wrap">
@@ -762,16 +667,24 @@ a{color:var(--gold);text-decoration:none}a:hover{color:var(--gold-hover)}
 <section id="proyectos" class="section ink">
   <div class="wrap">
     <div class="sec-head">
-      <h2 class="h2 reveal">Proyectos<br><span>en campo</span></h2>
-      <p class="reveal" style="--d:.1s">Investigación, pruebas de campo, ambiente y emprendimiento: trabajo real en distintas regiones del Perú.</p>
+      <h2 class="h2 reveal">Nuestros<br><span>proyectos</span></h2>
+      <p class="reveal" style="--d:.1s">Tecnología, pruebas de campo e investigación ambiental: trabajo real en distintas regiones del Perú.</p>
     </div>
     <div class="projects">
+      <article id="zigo" class="proj proj-feature reveal" style="--c:#1E3A8A">
+        <figure><img src="assets/zigo-proyecto.jpg" alt="Pantallas de la app ZIGO: ofrecer tarifa, ofertas de conductores y botón de ayuda" width="1200" height="700" loading="lazy"></figure>
+        <div class="proj-body">
+          <span class="proj-area">Tecnología y Transformación Digital <span class="live"><span class="dot" aria-hidden="true"></span>En curso</span></span>
+          <h3>ZIGO: movilidad en Huánuco</h3>
+          <p>App de movilidad para Huánuco, Amarilis y Pillco Marca. Permite pedir mototaxi, carro o carga pesada: el pasajero ofrece su tarifa y los conductores aceptan o contraofertan. Incluye botón SOS, ubicación compartida y modo conductor.</p>
+          <p>El desarrollo parte de un diagnóstico del transporte urbano en la ciudad, con encuestas a pasajeros y conductores de motokar y un focus group.</p>
+        </div>
+      </article>
       <article class="proj reveal" style="--c:#2E6B2A"><figure><img src="assets/campo-equipo-huancavelica.jpg" alt="Equipo de Blackbelt Group en una prueba de campo en Huancavelica" width="1200" height="440" loading="lazy" style="object-position:58% 50%"></figure><div class="proj-body"><span class="proj-area">Ingeniería especializada · Geofísica</span><h3>Pruebas de campo en Huancavelica y Jaén</h3><p>Estudios de tomografía eléctrica para caracterizar el subsuelo en Huancavelica y en Jaén (Cajamarca).</p></div></article>
       <article class="proj reveal" style="--c:#4A2577;--d:.08s"><figure><img src="assets/proj-ambiental.jpg" alt="Equipo de medición de pH y muestras de agua en laboratorio" width="1000" height="553" loading="lazy"></figure><div class="proj-body"><span class="proj-area">Investigación ambiental</span><h3>Expedición ambiental</h3><p>Muestreo en campo y análisis de laboratorio para investigación ambiental.</p></div></article>
       <article class="proj reveal" style="--c:#4A2577;--d:.16s"><figure><img src="assets/amb-multiparametro.jpg" alt="Maletín con medidor multiparámetro y sondas para calidad de agua" width="1000" height="659" loading="lazy"></figure><div class="proj-body"><span class="proj-area">Ambiente y calidad</span><h3>Calidad de agua</h3><p>Medición de parámetros en campo y análisis de laboratorio, como pH y nitrógeno amoniacal.</p></div></article>
       <article class="proj reveal" style="--c:#4A2577;--d:.24s"><figure><img src="assets/amb-rio.jpg" alt="Torre de captación sobre un río de aguas oscuras" width="1000" height="562" loading="lazy"></figure><div class="proj-body"><span class="proj-area">Ambiente y calidad</span><h3>Muestreo en cuerpos de agua</h3><p>Toma de muestras en ríos y quebradas para evaluación ambiental.</p></div></article>
     </div>
-    <p class="note reveal">Además, desarrollamos <a href="#zigo"><strong>ZIGO</strong></a> en Huánuco y acompañamos a <strong>Munay</strong> en la mejora de su producción de alfajores.</p>
     <h3 class="gallery-title reveal">Pruebas de <span>campo</span></h3>
     <div class="gallery">
       <figure class="reveal"><img src="assets/proj-huancavelica.jpg" alt="Prueba de campo en un valle de Huancavelica" width="1000" height="551" loading="lazy"></figure>
@@ -792,10 +705,6 @@ a{color:var(--gold);text-decoration:none}a:hover{color:var(--gold-hover)}
       <details class="reveal">
         <summary>¿Qué servicios ofrece Blackbelt Group?<span class="plus" aria-hidden="true"></span></summary>
         <div class="answer"><p>Trabajamos con cinco unidades de negocio: Ingeniería y Productividad, Tecnología y Transformación Digital, Investigación y Desarrollo, Ingeniería Especializada (que incluye especialidades como la geofísica) y Emprendimiento y Desarrollo Empresarial. Cuando un proyecto lo requiere, las unidades se integran en una solución conjunta.</p></div>
-      </details>
-      <details class="reveal">
-        <summary>¿Qué tipo de investigación realizan?<span class="plus" aria-hidden="true"></span></summary>
-        <div class="answer"><p>Hacemos investigación aplicada: diagnósticos y estudios de mercado, trabajo de campo (encuestas, focus group y pruebas de campo), estudios técnicos y análisis de datos para tomar decisiones con evidencia. Por ejemplo, el <a href="#zigo">diagnóstico del transporte urbano en Huánuco</a> para el proyecto ZIGO.</p></div>
       </details>
       <details class="reveal">
         <summary>¿Qué estudios de geofísica realizan?<span class="plus" aria-hidden="true"></span></summary>
@@ -905,7 +814,6 @@ a{color:var(--gold);text-decoration:none}a:hover{color:var(--gold-hover)}
       <ul>
         <li>Sede en Lima · Trabajamos en todo el Perú</li>
         <li><a href="mailto:blackbelt.ingenieria@gmail.com" data-track="email">blackbelt.ingenieria@gmail.com</a></li>
-        <li><a href="#investigacion">Investigación</a></li>
         <li><a href="#aliados">Aliados</a></li>
         <li><a href="#contacto">Solicitar propuesta</a></li>
       </ul>
