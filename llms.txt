@@ -16,7 +16,8 @@ Trabaja con cinco unidades de negocio que pueden operar por separado o integrars
 
 - ZIGO (en curso, Huánuco; Tecnología y Transformación Digital): app de movilidad para Huánuco, Amarilis y Pillco Marca (mototaxi, carro y carga pesada; el pasajero ofrece su tarifa; botón SOS; modo conductor). Parte de un diagnóstico del transporte urbano con encuestas a pasajeros y conductores de motokar y focus group.
 - Pruebas de campo de tomografía eléctrica en Huancavelica y en Jaén (Cajamarca).
-- Expedición ambiental, muestreo en cuerpos de agua y análisis de calidad de agua.
+- Calidad del agua en Loreto (Iquitos): análisis físico, químico y bacteriológico del agua que ingresa a una planta de captación de agua potable, para identificar minerales en niveles no aceptables y metales pesados como plomo y cadmio.
+- Expedición ambiental y análisis de calidad de agua.
 
 ## Contacto
 
