@@ -306,12 +306,23 @@ a{color:var(--gold);text-decoration:none}a:hover{color:var(--gold-hover)}
 .faq .answer p{margin:0 0 22px;max-width:760px;font-size:17px;line-height:1.65;color:var(--muted-dark)}
 
 /* ALIADOS */
-.allies{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
-.allies li{min-height:150px;padding:24px;border:1px dashed var(--gold-soft);display:flex;flex-direction:column;justify-content:space-between;gap:16px;transition:border-color .3s,background .3s}
-.allies li:hover{border-color:var(--gold);background:rgba(240,195,88,.05)}
-.allies li:first-child{border-style:solid}
+.allies{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.ally{display:flex;flex-direction:column;background:var(--card);border:1px solid rgba(240,195,88,.25);transition:transform .35s var(--ease),border-color .35s,box-shadow .35s}
+.ally:hover{transform:translateY(-5px);border-color:rgba(240,195,88,.6);box-shadow:0 24px 40px -24px rgba(240,195,88,.4)}
+.ally-logo{height:170px;background:#fff;display:flex;align-items:center;justify-content:center;padding:18px}
+.ally-logo img{max-height:100%;max-width:100%;width:auto;height:auto;object-fit:contain}
+.ally-logo.dark-logo{background:#000;padding:8px}
+.ally-body{padding:22px 24px 26px;display:flex;flex-direction:column;gap:8px;border-top:3px solid var(--gold)}
 .allies .a{font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
-.allies .n{font-family:var(--display);font-weight:700;font-size:26px;text-transform:uppercase;color:var(--text-light)}
+.allies .n{margin:0;font-family:var(--display);font-weight:700;font-size:28px;line-height:1.05;text-transform:uppercase;color:var(--text-light)}
+.ally-body p{margin:0;font-size:15px;line-height:1.55;color:var(--muted-light)}
+.ally-feature{grid-column:1/-1;display:grid;grid-template-columns:240px minmax(0,1fr) 220px;align-items:stretch}
+.ally-feature .ally-logo{height:auto;min-height:220px}
+.ally-feature .ally-body{border-top:0;border-left:3px solid var(--gold);justify-content:center;padding:28px 32px}
+.ally-feature .ally-body p{font-size:16px}
+.ally-rep{margin:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:20px;background:rgba(240,195,88,.06)}
+.ally-rep img{width:150px;height:150px;border-radius:50%;object-fit:cover;object-position:50% 30%;border:3px solid var(--gold)}
+.ally-rep figcaption{font-size:13px;line-height:1.35;text-align:center;color:var(--muted-light)}
 
 /* CONTACTO */
 .contact{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px}
@@ -386,6 +397,9 @@ a{color:var(--gold);text-decoration:none}a:hover{color:var(--gold-hover)}
 /* ---------- RESPONSIVE ---------- */
 @media (max-width:1100px){
   .cards4,.projects,.allies{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ally-feature{grid-template-columns:200px minmax(0,1fr)}
+  .ally-rep{grid-column:1/-1;flex-direction:row;justify-content:flex-start}
+  .ally-rep img{width:96px;height:96px}
   .tabs{grid-template-columns:repeat(3,minmax(0,1fr))}
   .gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
   .unit{grid-template-columns:1fr}
@@ -433,6 +447,10 @@ a{color:var(--gold);text-decoration:none}a:hover{color:var(--gold-hover)}
   .sec-head{margin-bottom:32px}
   .sec-head p{font-size:17px}
   .cards4,.projects,.allies{grid-template-columns:1fr}
+  .ally-feature{grid-template-columns:1fr}
+  .ally-feature .ally-logo{min-height:0;height:170px}
+  .ally-feature .ally-body{border-left:0;border-top:3px solid var(--gold);padding:22px 20px}
+  .ally-rep{grid-column:auto}
   .pcard{padding:26px 22px}
   .tabs{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:8px;margin:0 calc(var(--gutter) * -1) 20px;padding:4px var(--gutter) 8px;scrollbar-width:none}
   .tabs::-webkit-scrollbar{display:none}
@@ -734,10 +752,39 @@ a{color:var(--gold);text-decoration:none}a:hover{color:var(--gold-hover)}
       <p class="reveal" style="--d:.1s">Reunimos capacidades, experiencia y aliados estratégicos para brindar soluciones efectivas, medibles y sostenibles.</p>
     </div>
     <ul class="allies">
-      <li class="reveal"><span class="a">Geofísica</span><span class="n">[Nombre del aliado]</span></li>
-      <li class="reveal" style="--d:.08s"><span class="a">[Área]</span><span class="n">[Nombre del aliado]</span></li>
-      <li class="reveal" style="--d:.16s"><span class="a">[Área]</span><span class="n">[Nombre del aliado]</span></li>
-      <li class="reveal" style="--d:.24s"><span class="a">[Área]</span><span class="n">[Nombre del aliado]</span></li>
+      <li class="ally ally-feature reveal">
+        <div class="ally-logo"><img src="assets/aliado-bethabel.jpg" alt="Logo de Bethabel Company" width="334" height="360" loading="lazy"></div>
+        <div class="ally-body">
+          <span class="a">Geofísica · Aliado principal</span>
+          <h3 class="n">Bethabel Company</h3>
+          <p>Aliado especializado en geofísica. Trabajamos juntos en estudios del subsuelo y pruebas de campo para proyectos de ingeniería.</p>
+        </div>
+        <figure class="ally-rep"><img src="assets/aliado-bethabel-representante.jpg" alt="Representante de Bethabel Company" width="432" height="432" loading="lazy"><figcaption>Representante de Bethabel Company</figcaption></figure>
+      </li>
+      <li class="ally reveal">
+        <div class="ally-logo"><img src="assets/aliado-ecus.jpg" alt="Logo de ECUS S.A.C." width="309" height="360" loading="lazy"></div>
+        <div class="ally-body">
+          <span class="a">Construcción y telecomunicaciones · Loreto</span>
+          <h3 class="n">ECUS S.A.C.</h3>
+          <p>Empresa Constructora Universal de Servicios. Obra civil, topografía, torres y antenas de telecomunicaciones, sistemas eléctricos y de puesta a tierra, y fibra óptica.</p>
+        </div>
+      </li>
+      <li class="ally reveal" style="--d:.08s">
+        <div class="ally-logo"><img src="assets/aliado-odiseo.jpg" alt="Logo de ODISEO, Oficina de Informática y Servicios Especiales Orientados" width="293" height="367" loading="lazy"></div>
+        <div class="ally-body">
+          <span class="a">Informática y software · Tarapoto</span>
+          <h3 class="n">ODISEO</h3>
+          <p>Oficina de Informática y Servicios Especiales Orientados. Desarrollo de páginas web y software a medida, redes, soporte técnico, asesoría en tesis y capacitaciones.</p>
+        </div>
+      </li>
+      <li class="ally reveal" style="--d:.16s">
+        <div class="ally-logo dark-logo"><img src="assets/aliado-aionvex.jpg" alt="Logo de AIONVEX" width="400" height="400" loading="lazy"></div>
+        <div class="ally-body">
+          <span class="a">Soluciones tecnológicas</span>
+          <h3 class="n">AIONVEX</h3>
+          <p>Tecnología para hacer crecer negocios: sistema POS, facturación electrónica, control de inventario, ventas y caja para minimarkets, ferreterías, restaurantes, bodegas y boticas.</p>
+        </div>
+      </li>
     </ul>
   </div>
 </section>

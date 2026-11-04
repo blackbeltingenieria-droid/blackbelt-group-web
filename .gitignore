@@ -8,6 +8,11 @@ README.md
 
 # Solo se publican las imágenes que usa index.html
 assets/*
+!assets/aliado-aionvex.jpg
+!assets/aliado-bethabel-representante.jpg
+!assets/aliado-bethabel.jpg
+!assets/aliado-ecus.jpg
+!assets/aliado-odiseo.jpg
 !assets/amb-muestras.jpg
 !assets/amb-multiparametro.jpg
 !assets/amb-nitrogeno.jpg

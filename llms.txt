@@ -19,6 +19,13 @@ Trabaja con cinco unidades de negocio que pueden operar por separado o integrars
 - Calidad del agua en Loreto (Iquitos): análisis físico, químico y bacteriológico del agua que ingresa a una planta de captación de agua potable, para identificar minerales en niveles no aceptables y metales pesados como plomo y cadmio.
 - Expedición ambiental y análisis de calidad de agua.
 
+## Aliados estratégicos
+
+- Bethabel Company: aliado especializado en geofísica (estudios del subsuelo y pruebas de campo).
+- ECUS S.A.C. (Empresa Constructora Universal de Servicios, Loreto): obra civil, topografía, torres y antenas de telecomunicaciones, sistemas eléctricos y de puesta a tierra, fibra óptica.
+- ODISEO (Oficina de Informática y Servicios Especiales Orientados, Tarapoto): desarrollo web y de software, redes, soporte técnico, asesoría en tesis y capacitaciones.
+- AIONVEX: soluciones tecnológicas para negocios (sistema POS, facturación electrónica, inventario, ventas y caja).
+
 ## Contacto
 
 - Sitio web: https://blackbeltingenieria-droid.github.io/blackbelt-group-web/
