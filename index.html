@@ -505,6 +505,16 @@ img{image-rendering:auto}
 @media(max-width:600px){.field-carousel .gallery img{height:220px}.service-playback{align-items:flex-start}.ally-rep img{width:132px;height:132px}}
 @media(prefers-reduced-motion:reduce){.field-carousel .gallery{animation:none}.field-carousel{overflow-x:auto}}
 
+
+/* AI-restored photographs: keep technical subjects visible in each format. */
+.proj:not(.proj-feature) figure{height:auto;aspect-ratio:16/10;background:#10191b}
+.proj:not(.proj-feature) img{object-fit:cover;filter:none}
+.field-carousel .gallery img{object-fit:cover;background:#10191b;filter:none}
+.unit-media img{filter:none;object-position:center}
+#u-geo .unit-media img{object-position:50% 48%}
+#u-emp .unit-media img{object-position:38% 45%}
+@media(max-width:700px){.unit-media img{object-position:center 42%}}
+
 </style>
 <script>document.documentElement.classList.add('js');</script>
 </head>
@@ -628,7 +638,7 @@ img{image-rendering:auto}
     </div>
 
     <article class="unit reveal" id="u-ing" role="tabpanel" aria-labelledby="tab-ing" style="--c:#C2550A">
-      <div class="unit-media"><img src="assets/ing-productividad.webp" alt="Ingeniero revisando indicadores de producción en una planta industrial" width="646" height="830" loading="lazy"><div class="unit-num">01.</div></div>
+      <div class="unit-media"><img src="assets/ing-productividad-ia-v2.webp" alt="Ingeniero revisando indicadores de producción en una planta industrial" width="1106" height="1422" loading="lazy"><div class="unit-num">01.</div></div>
       <div class="unit-body">
         <div class="unit-head"><h3>Ingeniería y Productividad</h3><div class="rule"></div><p class="unit-desc">Mejoramos procesos para lograr operaciones más eficientes y productivas.</p></div>
         <div class="unit-cols">
@@ -640,7 +650,7 @@ img{image-rendering:auto}
     </article>
 
     <article class="unit" id="u-tec" role="tabpanel" aria-labelledby="tab-tec" style="--c:#1E3A8A" hidden>
-      <div class="unit-media"><img src="assets/tecnologia.webp" alt="Laptop con un dashboard de inteligencia de negocio" width="666" height="979" loading="lazy"><div class="unit-num">02.</div></div>
+      <div class="unit-media"><img src="assets/tecnologia-ia-v2.webp" alt="Laptop con un dashboard de inteligencia de negocio" width="979" height="1440" loading="lazy"><div class="unit-num">02.</div></div>
       <div class="unit-body">
         <div class="unit-head"><h3>Tecnología y Transformación Digital</h3><div class="rule"></div><p class="unit-desc">Transformamos datos e ideas en soluciones digitales que optimizan procesos, automatizan tareas y apoyan decisiones inteligentes.</p></div>
         <div class="unit-cols">
@@ -652,7 +662,7 @@ img{image-rendering:auto}
     </article>
 
     <article class="unit" id="u-id" role="tabpanel" aria-labelledby="tab-id" style="--c:#4A2577" hidden>
-      <div class="unit-media"><img src="assets/id.webp" alt="Microscopio y matraces en un laboratorio de investigación" width="701" height="944" loading="lazy"><div class="unit-num">03.</div></div>
+      <div class="unit-media"><img src="assets/id-ia-v2.webp" alt="Microscopio y matraces en un laboratorio de investigación" width="1068" height="1440" loading="lazy"><div class="unit-num">03.</div></div>
       <div class="unit-body">
         <div class="unit-head"><h3>Investigación y Desarrollo</h3><div class="rule"></div><p class="unit-desc">Generamos conocimiento y desarrollamos soluciones aplicadas que resuelven problemas reales y crean valor para la toma de decisiones y la innovación.</p></div>
         <div class="unit-cols">
@@ -664,7 +674,7 @@ img{image-rendering:auto}
     </article>
 
     <article class="unit" id="u-geo" role="tabpanel" aria-labelledby="tab-geo" style="--c:#2E6B2A" hidden>
-      <div class="unit-media"><img src="assets/proj-huancavelica.webp" alt="Prueba de campo en un valle de Huancavelica" width="1000" height="551" loading="lazy"><div class="unit-num">04.</div></div>
+      <div class="unit-media"><img src="assets/proj-huancavelica-ia-v2.webp" alt="Prueba de campo en un valle de Huancavelica" width="1440" height="794" loading="lazy"><div class="unit-num">04.</div></div>
       <div class="unit-body">
         <div class="unit-head"><h3>Ingeniería Especializada</h3><div class="rule"></div><p class="unit-desc">Abordamos proyectos que requieren conocimientos técnicos específicos y la participación de especialistas, con pruebas de campo en distintas regiones del Perú.</p></div>
         <div class="unit-cols">
@@ -681,7 +691,7 @@ img{image-rendering:auto}
     </article>
 
     <article class="unit" id="u-emp" role="tabpanel" aria-labelledby="tab-emp" style="--c:#155E6B" hidden>
-      <div class="unit-media"><img src="assets/emprendimiento.webp" alt="Equipo de emprendedores trabajando juntos en un modelo de negocio" width="788" height="405" loading="lazy"><div class="unit-num">05.</div></div>
+      <div class="unit-media"><img src="assets/emprendimiento-ia-v2.webp" alt="Equipo de emprendedores trabajando juntos en un modelo de negocio" width="1440" height="740" loading="lazy"><div class="unit-num">05.</div></div>
       <div class="unit-body">
         <div class="unit-head"><h3>Emprendimiento y Desarrollo Empresarial</h3><div class="rule"></div><p class="unit-desc">Impulsamos ideas y negocios para que crezcan, se fortalezcan y generen valor sostenible en el mercado. Apoyamos a MYPEs, emprendedores y empresas en cada etapa de su desarrollo.</p></div>
         <div class="unit-cols">
@@ -725,17 +735,17 @@ img{image-rendering:auto}
         </div>
       </article>
       <article class="proj reveal" style="--c:#2E6B2A"><figure><img src="assets/geo-equipo-huancavelica-v4.webp" alt="Equipo de Blackbelt Group en una prueba de campo en Huancavelica" width="1420" height="1108" loading="lazy" style="object-position:58% 50%"></figure><div class="proj-body"><span class="proj-area">Ingeniería especializada · Geofísica</span><h3>Pruebas de campo en Huancavelica y Jaén</h3><p>Estudios de tomografía eléctrica para caracterizar el subsuelo en Huancavelica y en Jaén (Cajamarca).</p></div></article>
-      <article class="proj reveal" style="--c:#4A2577;--d:.08s"><figure><img src="assets/proj-ambiental.webp" alt="Equipo de medición de pH y muestras de agua en laboratorio" width="1000" height="553" loading="lazy"></figure><div class="proj-body"><span class="proj-area">Investigación ambiental</span><h3>Expedición ambiental</h3><p>Muestreo en campo y análisis de laboratorio para investigación ambiental.</p></div></article>
-      <article class="proj reveal" style="--c:#4A2577;--d:.16s"><figure><img src="assets/amb-multiparametro.webp" alt="Maletín con medidor multiparámetro y sondas para calidad de agua" width="1000" height="659" loading="lazy"></figure><div class="proj-body"><span class="proj-area">Ambiente y calidad</span><h3>Calidad de agua</h3><p>Medición de parámetros en campo y análisis de laboratorio, como pH y nitrógeno amoniacal.</p></div></article>
-      <article class="proj reveal" style="--c:#4A2577;--d:.24s"><figure><img src="assets/amb-rio.webp" alt="Planta de captación de agua potable sobre un río en Iquitos, Loreto" width="1000" height="562" loading="lazy"></figure><div class="proj-body"><span class="proj-area">Investigación ambiental · Aguas</span><h3>Calidad del agua en Loreto (Iquitos)</h3><p>Análisis físico, químico y bacteriológico del agua que ingresa a una planta de captación de agua potable, para identificar minerales en niveles no aceptables y contaminantes como metales pesados (plomo y cadmio).</p></div></article>
+      <article class="proj reveal" style="--c:#4A2577;--d:.08s"><figure><img src="assets/proj-ambiental-ia-v2.webp" alt="Equipo de medición de pH y muestras de agua en laboratorio" width="1440" height="796" loading="lazy"></figure><div class="proj-body"><span class="proj-area">Investigación ambiental</span><h3>Expedición ambiental</h3><p>Muestreo en campo y análisis de laboratorio para investigación ambiental.</p></div></article>
+      <article class="proj reveal" style="--c:#4A2577;--d:.16s"><figure><img src="assets/amb-multiparametro-ia-v2.webp" alt="Maletín con medidor multiparámetro y sondas para calidad de agua" width="1440" height="947" loading="lazy"></figure><div class="proj-body"><span class="proj-area">Ambiente y calidad</span><h3>Calidad de agua</h3><p>Medición de parámetros en campo y análisis de laboratorio, como pH y nitrógeno amoniacal.</p></div></article>
+      <article class="proj reveal" style="--c:#4A2577;--d:.24s"><figure><img src="assets/amb-rio-ia-v2.webp" alt="Planta de captación de agua potable sobre un río en Iquitos, Loreto" width="1440" height="809" loading="lazy"></figure><div class="proj-body"><span class="proj-area">Investigación ambiental · Aguas</span><h3>Calidad del agua en Loreto (Iquitos)</h3><p>Análisis físico, químico y bacteriológico del agua que ingresa a una planta de captación de agua potable, para identificar minerales en niveles no aceptables y contaminantes como metales pesados (plomo y cadmio).</p></div></article>
     </div>
     <h3 class="gallery-title reveal">Pruebas de <span>campo</span></h3>
     <div class="field-carousel" role="region" aria-label="Fotografías de pruebas de campo">
     <div class="gallery">
-      <figure class="reveal"><img src="assets/proj-huancavelica.webp" alt="Prueba de campo en un valle de Huancavelica" width="1000" height="551" loading="lazy"></figure>
-      <figure class="reveal" style="--d:.06s"><img src="assets/amb-quebrada.webp" alt="Quebrada con agua de color rojizo rodeada de vegetación tropical" width="1000" height="750" loading="lazy"></figure>
-      <figure class="reveal" style="--d:.12s"><img src="assets/amb-nitrogeno.webp" alt="Kit colorimétrico para análisis de nitrógeno amoniacal en agua" width="1000" height="562" loading="lazy"></figure>
-      <figure class="reveal" style="--d:.18s"><img src="assets/amb-muestras.webp" alt="Muestras de agua en botellas sobre una mesa de laboratorio" width="1000" height="562" loading="lazy"></figure>
+      <figure class="reveal"><img src="assets/proj-huancavelica-ia-v2.webp" alt="Prueba de campo en un valle de Huancavelica" width="1440" height="794" loading="lazy"></figure>
+      <figure class="reveal" style="--d:.06s"><img src="assets/amb-quebrada-ia-v2.webp" alt="Quebrada con agua de color rojizo rodeada de vegetación tropical" width="1440" height="1080" loading="lazy"></figure>
+      <figure class="reveal" style="--d:.12s"><img src="assets/amb-nitrogeno-ia-v2.webp" alt="Kit colorimétrico para análisis de nitrógeno amoniacal en agua" width="1440" height="809" loading="lazy"></figure>
+      <figure class="reveal" style="--d:.18s"><img src="assets/amb-muestras-ia-v2.webp" alt="Muestras de agua en botellas sobre una mesa de laboratorio" width="1440" height="809" loading="lazy"></figure>
     </div>
     </div>
     <button type="button" class="motion-toggle" id="field-pause" aria-pressed="false">Pausar carrusel</button>
