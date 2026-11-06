@@ -492,7 +492,7 @@ img{image-rendering:auto}
 .field-carousel .gallery{display:flex;gap:16px;width:max-content;animation:field-scroll 36s linear infinite}
 .field-carousel .gallery figure{flex:0 0 clamp(260px,32vw,420px);width:clamp(260px,32vw,420px);opacity:1;transform:none}
 .field-carousel .gallery img{display:block;height:280px;object-fit:cover;cursor:zoom-in}
-.field-carousel:hover .gallery,.field-carousel:focus-within .gallery,.field-carousel.paused .gallery{animation-play-state:paused}
+.field-carousel:has(img:focus-visible) .gallery{animation-play-state:paused}
 @keyframes field-scroll{to{transform:translateX(-50%)}}
 .motion-toggle{border:1px solid currentColor;border-radius:3px;padding:9px 16px;background:transparent;color:inherit;font:inherit;cursor:pointer;margin:12px 0}
 .motion-toggle:hover{background:var(--gold);color:#111}
@@ -515,6 +515,11 @@ img{image-rendering:auto}
 #u-emp .unit-media img{object-position:38% 45%}
 @media(max-width:700px){.unit-media img{object-position:center 42%}}
 
+
+/* A quiet progress indicator explains the automatic service sequence. */
+.service-playback{margin-bottom:12px;color:var(--body-dark)}
+.tab[aria-selected="true"]::after{content:"";position:absolute;left:0;bottom:0;height:3px;width:calc(var(--service-progress,0) * 100%);background:rgba(255,255,255,.8);transition:width .25s linear;pointer-events:none}
+@media(prefers-reduced-motion:reduce){.tab[aria-selected="true"]::after{display:none}}
 </style>
 <script>document.documentElement.classList.add('js');</script>
 </head>
@@ -628,7 +633,7 @@ img{image-rendering:auto}
       <p class="reveal" style="--d:.1s">Operamos como un grupo integrado de cinco unidades de negocio especializadas. Cada una puede desarrollarse de forma independiente, pero siempre bajo una identidad común.</p>
     </div>
 
-    <div class="service-playback"><span>Descubre nuestras unidades · cada 5 segundos</span><button type="button" class="motion-toggle" id="service-pause" aria-pressed="false">Pausar servicios</button></div>
+    <div class="service-playback"><span id="service-status">Avance automático · elige un servicio para explorarlo</span></div>
     <div class="tabs reveal" role="tablist" aria-label="Unidades de negocio">
       <button class="tab" type="button" role="tab" id="tab-ing" aria-controls="u-ing" aria-selected="true" style="--c:#C2550A"><span class="n">01</span><span class="t">Ingeniería y Productividad</span></button>
       <button class="tab" type="button" role="tab" id="tab-tec" aria-controls="u-tec" aria-selected="false" tabindex="-1" style="--c:#1E3A8A"><span class="n">02</span><span class="t">Tecnología y Transformación Digital</span></button>
@@ -748,7 +753,6 @@ img{image-rendering:auto}
       <figure class="reveal" style="--d:.18s"><img src="assets/amb-muestras-ia-v2.webp" alt="Muestras de agua en botellas sobre una mesa de laboratorio" width="1440" height="809" loading="lazy"></figure>
     </div>
     </div>
-    <button type="button" class="motion-toggle" id="field-pause" aria-pressed="false">Pausar carrusel</button>
   </div>
 </section>
 
@@ -1050,20 +1054,51 @@ img{image-rendering:auto}
   if (hashUnit) show(hashUnit[1]);
 
 
-  /* Timed services: pause on interaction, offscreen, or hidden tab. */
-  var servicePaused = reduce, serviceElapsed = 0;
-  var serviceButton = document.getElementById('service-pause');
-  function serviceLabel(){serviceButton.textContent=servicePaused?'Reproducir servicios':'Pausar servicios';serviceButton.setAttribute('aria-pressed',String(servicePaused));}
-  serviceLabel();
-  serviceButton.addEventListener('click',function(){servicePaused=!servicePaused;serviceElapsed=0;serviceLabel();});
-  tabsEl.addEventListener('click',function(){serviceElapsed=0;});
-  tabsEl.addEventListener('keydown',function(){serviceElapsed=0;});
-  setInterval(function(){
-    var section=document.getElementById('servicios'), rect=section.getBoundingClientRect();
-    if(servicePaused||document.hidden||section.matches(':hover')||section.contains(document.activeElement)||rect.bottom<0||rect.top>innerHeight){serviceElapsed=0;return;}
-    serviceElapsed+=250;
-    if(serviceElapsed>=5000){serviceElapsed=0;var i=tabs.findIndex(function(t){return t.getAttribute('aria-selected')==='true';});show(tabs[(i+1)%tabs.length].id.slice(4));}
-  },250);
+  /* Automatic services; a deliberate selection gives time to read. */
+  var serviceElapsed = 0, manualUntil = 0;
+  var serviceStatus = document.getElementById('service-status');
+  function holdService() {
+    manualUntil = Date.now() + 30000;
+    serviceElapsed = 0;
+    tabsEl.style.setProperty('--service-progress', '0');
+    serviceStatus.textContent = 'Estás explorando este servicio';
+  }
+  tabsEl.addEventListener('click', holdService);
+  tabsEl.addEventListener('keydown', function(e) {
+    if (['ArrowLeft', 'ArrowRight', 'Enter', ' '].indexOf(e.key) !== -1) holdService();
+  });
+  document.querySelectorAll('[data-unit]').forEach(function(link) {
+    link.addEventListener('click', holdService);
+  });
+  var servicesSection = document.getElementById('servicios');
+  ['pointerdown', 'wheel', 'keydown'].forEach(function(eventName) {
+    servicesSection.addEventListener(eventName, function() {
+      if (manualUntil > Date.now()) holdService();
+    }, { passive: true });
+  });
+  if (hashUnit) holdService();
+  if (reduce) serviceStatus.textContent = 'Elige un servicio para explorarlo';
+  setInterval(function() {
+    var rect = servicesSection.getBoundingClientRect();
+    var selection = window.getSelection ? window.getSelection() : null;
+    if (reduce || document.hidden || document.querySelector('dialog[open]') ||
+        rect.bottom <= 0 || rect.top >= innerHeight ||
+        (selection && !selection.isCollapsed) || tabsEl.querySelector(':focus-visible')) {
+      serviceElapsed = 0;
+      tabsEl.style.setProperty('--service-progress', '0');
+      return;
+    }
+    if (manualUntil > Date.now()) return;
+    serviceStatus.textContent = 'Avance automático · elige un servicio para explorarlo';
+    serviceElapsed += 250;
+    tabsEl.style.setProperty('--service-progress', String(serviceElapsed / 5000));
+    if (serviceElapsed >= 5000) {
+      serviceElapsed = 0;
+      tabsEl.style.setProperty('--service-progress', '0');
+      var i = tabs.findIndex(function(t) { return t.getAttribute('aria-selected') === 'true'; });
+      show(tabs[(i + 1) % tabs.length].id.slice(4));
+    }
+  }, 250);
   /* Duplicate one equal-width set for a seamless loop. */
   var carousel=document.querySelector('.field-carousel'), gallery=carousel.querySelector('.gallery');
   Array.from(gallery.children).forEach(function(figure){
@@ -1072,19 +1107,21 @@ img{image-rendering:auto}
   });
   // Each set includes its final gap, so the loop joins without a jump.
   gallery.style.paddingRight='16px';
-  var fieldPaused=reduce, fieldButton=document.getElementById('field-pause');
-  function fieldLabel(){carousel.classList.toggle('paused',fieldPaused);fieldButton.textContent=fieldPaused?'Reproducir carrusel':'Pausar carrusel';fieldButton.setAttribute('aria-pressed',String(fieldPaused));}
-  fieldLabel();fieldButton.addEventListener('click',function(){fieldPaused=!fieldPaused;fieldLabel();});
   /* Open photographs at their available resolution without card cropping. */
   var viewer=document.createElement('dialog');viewer.className='image-viewer';viewer.setAttribute('aria-label','Fotografía ampliada');
   var closeImage=document.createElement('button');closeImage.type='button';closeImage.className='motion-toggle';closeImage.textContent='Cerrar imagen';
   var fullImage=document.createElement('img'),caption=document.createElement('p');viewer.append(closeImage,fullImage,caption);document.body.appendChild(viewer);
+  function syncGalleryMotion() {
+    gallery.style.animationPlayState = document.hidden || viewer.open ? 'paused' : '';
+  }
+  document.addEventListener('visibilitychange', syncGalleryMotion);
+  viewer.addEventListener('close', syncGalleryMotion);
   closeImage.addEventListener('click',function(){viewer.close();});
   viewer.addEventListener('click',function(e){if(e.target===viewer)viewer.close();});
   document.querySelectorAll('.hero-media img,.proj img,.gallery img,.unit-media img,.ally-rep img').forEach(function(img){
     var duplicate=img.closest('[aria-hidden="true"]');
     img.style.cursor='zoom-in';if(!duplicate){img.tabIndex=0;img.setAttribute('role','button');img.setAttribute('aria-label','Ampliar: '+img.alt);}
-    function openImage(){fullImage.src=img.src;fullImage.alt=img.alt;caption.textContent=img.alt;viewer.showModal();}
+    function openImage(){fullImage.src=img.src;fullImage.alt=img.alt;caption.textContent=img.alt;viewer.showModal();syncGalleryMotion();}
     img.addEventListener('click',openImage);img.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openImage();}});
   });
 
