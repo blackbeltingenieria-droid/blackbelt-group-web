@@ -30,3 +30,5 @@ assets/*
 !assets/proj-huancavelica.jpg
 !assets/tecnologia.jpg
 !assets/zigo-proyecto.jpg
+
+!assets/*.webp

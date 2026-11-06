@@ -28,7 +28,7 @@
 
 <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="preload" as="image" href="assets/geo-equipo-huancavelica.jpg?v=3" fetchpriority="high">
+<link rel="preload" as="image" href="assets/geo-equipo-huancavelica-v4.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600;700&display=swap">
@@ -480,6 +480,30 @@ a{color:var(--gold);text-decoration:none}a:hover{color:var(--gold-hover)}
   .js .reveal{opacity:1;transform:none}
   .js .reveal-line{transform:none}
 }
+
+/* Image presentation and continuous field carousel */
+img{image-rendering:auto}
+.hero-media .pic{clip-path:none;border-radius:4px}
+.hero-media img{height:auto;aspect-ratio:1420/1108;object-fit:contain}
+.proj img,.unit-media img{filter:contrast(1.025) saturate(1.035)}
+.ally-rep img{width:184px;height:184px;border-radius:8px;object-fit:contain;background:white}
+.field-carousel{overflow:hidden;max-width:100%;margin-top:8px}
+.field-carousel .gallery{display:flex;gap:16px;width:max-content;animation:field-scroll 36s linear infinite}
+.field-carousel .gallery figure{flex:0 0 clamp(260px,32vw,420px);width:clamp(260px,32vw,420px);opacity:1;transform:none}
+.field-carousel .gallery img{display:block;height:280px;object-fit:cover;cursor:zoom-in}
+.field-carousel:hover .gallery,.field-carousel:focus-within .gallery,.field-carousel.paused .gallery{animation-play-state:paused}
+@keyframes field-scroll{to{transform:translateX(-50%)}}
+.motion-toggle{border:1px solid currentColor;border-radius:3px;padding:9px 16px;background:transparent;color:inherit;font:inherit;cursor:pointer;margin:12px 0}
+.motion-toggle:hover{background:var(--gold);color:#111}
+.service-playback{display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:14px}
+.image-viewer{border:1px solid #555;padding:12px;background:#111;color:white;max-width:96vw;max-height:96vh}
+.image-viewer::backdrop{background:rgba(0,0,0,.9)}
+.image-viewer img{display:block;max-width:90vw;max-height:78vh;width:auto;height:auto;object-fit:contain}
+.image-viewer button{display:block;margin:0 0 10px auto}
+.image-viewer p{margin:10px 0 0;font-size:14px}
+@media(max-width:600px){.field-carousel .gallery img{height:220px}.service-playback{align-items:flex-start}.ally-rep img{width:132px;height:132px}}
+@media(prefers-reduced-motion:reduce){.field-carousel .gallery{animation:none}.field-carousel{overflow-x:auto}}
+
 </style>
 <script>document.documentElement.classList.add('js');</script>
 </head>
@@ -521,7 +545,7 @@ a{color:var(--gold);text-decoration:none}a:hover{color:var(--gold-hover)}
     </div>
     <div class="hero-media">
       <div class="frame" aria-hidden="true"></div>
-      <div class="pic"><img src="assets/geo-equipo-huancavelica.jpg?v=3" alt="Equipo de Blackbelt Group con cascos y chalecos durante una prueba de campo en Huancavelica, Perú" width="1200" height="805" fetchpriority="high"></div>
+      <div class="pic"><img src="assets/geo-equipo-huancavelica-v4.webp" alt="Equipo de Blackbelt Group con cascos y chalecos durante una prueba de campo en Huancavelica, Perú" width="1420" height="1108" fetchpriority="high"></div>
       <div class="hero-caption">
         <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-7.6 7-13a7 7 0 0 0-14 0c0 5.4 7 13 7 13z"/><circle cx="12" cy="9" r="2.5"/></svg>
         <p><strong>Huancavelica, 2026.</strong> Nuestro equipo en una prueba de campo.</p>
@@ -593,6 +617,7 @@ a{color:var(--gold);text-decoration:none}a:hover{color:var(--gold-hover)}
       <p class="reveal" style="--d:.1s">Operamos como un grupo integrado de cinco unidades de negocio especializadas. Cada una puede desarrollarse de forma independiente, pero siempre bajo una identidad común.</p>
     </div>
 
+    <div class="service-playback"><span>Descubre nuestras unidades · cada 5 segundos</span><button type="button" class="motion-toggle" id="service-pause" aria-pressed="false">Pausar servicios</button></div>
     <div class="tabs reveal" role="tablist" aria-label="Unidades de negocio">
       <button class="tab" type="button" role="tab" id="tab-ing" aria-controls="u-ing" aria-selected="true" style="--c:#C2550A"><span class="n">01</span><span class="t">Ingeniería y Productividad</span></button>
       <button class="tab" type="button" role="tab" id="tab-tec" aria-controls="u-tec" aria-selected="false" tabindex="-1" style="--c:#1E3A8A"><span class="n">02</span><span class="t">Tecnología y Transformación Digital</span></button>
@@ -602,7 +627,7 @@ a{color:var(--gold);text-decoration:none}a:hover{color:var(--gold-hover)}
     </div>
 
     <article class="unit reveal" id="u-ing" role="tabpanel" aria-labelledby="tab-ing" style="--c:#C2550A">
-      <div class="unit-media"><img src="assets/ing-productividad.jpg" alt="Ingeniero revisando indicadores de producción en una planta industrial" width="646" height="830" loading="lazy"><div class="unit-num">01.</div></div>
+      <div class="unit-media"><img src="assets/ing-productividad.webp" alt="Ingeniero revisando indicadores de producción en una planta industrial" width="646" height="830" loading="lazy"><div class="unit-num">01.</div></div>
       <div class="unit-body">
         <div class="unit-head"><h3>Ingeniería y Productividad</h3><div class="rule"></div><p class="unit-desc">Mejoramos procesos para lograr operaciones más eficientes y productivas.</p></div>
         <div class="unit-cols">
@@ -614,7 +639,7 @@ a{color:var(--gold);text-decoration:none}a:hover{color:var(--gold-hover)}
     </article>
 
     <article class="unit" id="u-tec" role="tabpanel" aria-labelledby="tab-tec" style="--c:#1E3A8A" hidden>
-      <div class="unit-media"><img src="assets/tecnologia.jpg" alt="Laptop con un dashboard de inteligencia de negocio" width="666" height="979" loading="lazy"><div class="unit-num">02.</div></div>
+      <div class="unit-media"><img src="assets/tecnologia.webp" alt="Laptop con un dashboard de inteligencia de negocio" width="666" height="979" loading="lazy"><div class="unit-num">02.</div></div>
       <div class="unit-body">
         <div class="unit-head"><h3>Tecnología y Transformación Digital</h3><div class="rule"></div><p class="unit-desc">Transformamos datos e ideas en soluciones digitales que optimizan procesos, automatizan tareas y apoyan decisiones inteligentes.</p></div>
         <div class="unit-cols">
@@ -626,7 +651,7 @@ a{color:var(--gold);text-decoration:none}a:hover{color:var(--gold-hover)}
     </article>
 
     <article class="unit" id="u-id" role="tabpanel" aria-labelledby="tab-id" style="--c:#4A2577" hidden>
-      <div class="unit-media"><img src="assets/id.jpg" alt="Microscopio y matraces en un laboratorio de investigación" width="701" height="944" loading="lazy"><div class="unit-num">03.</div></div>
+      <div class="unit-media"><img src="assets/id.webp" alt="Microscopio y matraces en un laboratorio de investigación" width="701" height="944" loading="lazy"><div class="unit-num">03.</div></div>
       <div class="unit-body">
         <div class="unit-head"><h3>Investigación y Desarrollo</h3><div class="rule"></div><p class="unit-desc">Generamos conocimiento y desarrollamos soluciones aplicadas que resuelven problemas reales y crean valor para la toma de decisiones y la innovación.</p></div>
         <div class="unit-cols">
@@ -638,7 +663,7 @@ a{color:var(--gold);text-decoration:none}a:hover{color:var(--gold-hover)}
     </article>
 
     <article class="unit" id="u-geo" role="tabpanel" aria-labelledby="tab-geo" style="--c:#2E6B2A" hidden>
-      <div class="unit-media"><img src="assets/proj-huancavelica.jpg" alt="Prueba de campo en un valle de Huancavelica" width="1000" height="551" loading="lazy"><div class="unit-num">04.</div></div>
+      <div class="unit-media"><img src="assets/proj-huancavelica.webp" alt="Prueba de campo en un valle de Huancavelica" width="1000" height="551" loading="lazy"><div class="unit-num">04.</div></div>
       <div class="unit-body">
         <div class="unit-head"><h3>Ingeniería Especializada</h3><div class="rule"></div><p class="unit-desc">Abordamos proyectos que requieren conocimientos técnicos específicos y la participación de especialistas, con pruebas de campo en distintas regiones del Perú.</p></div>
         <div class="unit-cols">
@@ -655,7 +680,7 @@ a{color:var(--gold);text-decoration:none}a:hover{color:var(--gold-hover)}
     </article>
 
     <article class="unit" id="u-emp" role="tabpanel" aria-labelledby="tab-emp" style="--c:#155E6B" hidden>
-      <div class="unit-media"><img src="assets/emprendimiento.jpg" alt="Equipo de emprendedores trabajando juntos en un modelo de negocio" width="788" height="405" loading="lazy"><div class="unit-num">05.</div></div>
+      <div class="unit-media"><img src="assets/emprendimiento.webp" alt="Equipo de emprendedores trabajando juntos en un modelo de negocio" width="788" height="405" loading="lazy"><div class="unit-num">05.</div></div>
       <div class="unit-body">
         <div class="unit-head"><h3>Emprendimiento y Desarrollo Empresarial</h3><div class="rule"></div><p class="unit-desc">Impulsamos ideas y negocios para que crezcan, se fortalezcan y generen valor sostenible en el mercado. Apoyamos a MYPEs, emprendedores y empresas en cada etapa de su desarrollo.</p></div>
         <div class="unit-cols">
@@ -690,7 +715,7 @@ a{color:var(--gold);text-decoration:none}a:hover{color:var(--gold-hover)}
     </div>
     <div class="projects">
       <article id="zigo" class="proj proj-feature reveal" style="--c:#1E3A8A">
-        <figure><img src="assets/zigo-proyecto.jpg" alt="Pantallas de la app ZIGO: ofrecer tarifa, ofertas de conductores y botón de ayuda" width="1200" height="700" loading="lazy"></figure>
+        <figure><img src="assets/zigo-proyecto.webp" alt="Pantallas de la app ZIGO: ofrecer tarifa, ofertas de conductores y botón de ayuda" width="1200" height="700" loading="lazy"></figure>
         <div class="proj-body">
           <span class="proj-area">Tecnología y Transformación Digital <span class="live"><span class="dot" aria-hidden="true"></span>En curso</span></span>
           <h3>ZIGO: movilidad en Huánuco</h3>
@@ -698,18 +723,21 @@ a{color:var(--gold);text-decoration:none}a:hover{color:var(--gold-hover)}
           <p>El desarrollo parte de un diagnóstico del transporte urbano en la ciudad, con encuestas a pasajeros y conductores de motokar y un focus group.</p>
         </div>
       </article>
-      <article class="proj reveal" style="--c:#2E6B2A"><figure><img src="assets/geo-equipo-huancavelica.jpg?v=3" alt="Equipo de Blackbelt Group en una prueba de campo en Huancavelica" width="1200" height="805" loading="lazy" style="object-position:58% 50%"></figure><div class="proj-body"><span class="proj-area">Ingeniería especializada · Geofísica</span><h3>Pruebas de campo en Huancavelica y Jaén</h3><p>Estudios de tomografía eléctrica para caracterizar el subsuelo en Huancavelica y en Jaén (Cajamarca).</p></div></article>
-      <article class="proj reveal" style="--c:#4A2577;--d:.08s"><figure><img src="assets/proj-ambiental.jpg" alt="Equipo de medición de pH y muestras de agua en laboratorio" width="1000" height="553" loading="lazy"></figure><div class="proj-body"><span class="proj-area">Investigación ambiental</span><h3>Expedición ambiental</h3><p>Muestreo en campo y análisis de laboratorio para investigación ambiental.</p></div></article>
-      <article class="proj reveal" style="--c:#4A2577;--d:.16s"><figure><img src="assets/amb-multiparametro.jpg" alt="Maletín con medidor multiparámetro y sondas para calidad de agua" width="1000" height="659" loading="lazy"></figure><div class="proj-body"><span class="proj-area">Ambiente y calidad</span><h3>Calidad de agua</h3><p>Medición de parámetros en campo y análisis de laboratorio, como pH y nitrógeno amoniacal.</p></div></article>
-      <article class="proj reveal" style="--c:#4A2577;--d:.24s"><figure><img src="assets/amb-rio.jpg" alt="Planta de captación de agua potable sobre un río en Iquitos, Loreto" width="1000" height="562" loading="lazy"></figure><div class="proj-body"><span class="proj-area">Investigación ambiental · Aguas</span><h3>Calidad del agua en Loreto (Iquitos)</h3><p>Análisis físico, químico y bacteriológico del agua que ingresa a una planta de captación de agua potable, para identificar minerales en niveles no aceptables y contaminantes como metales pesados (plomo y cadmio).</p></div></article>
+      <article class="proj reveal" style="--c:#2E6B2A"><figure><img src="assets/geo-equipo-huancavelica-v4.webp" alt="Equipo de Blackbelt Group en una prueba de campo en Huancavelica" width="1420" height="1108" loading="lazy" style="object-position:58% 50%"></figure><div class="proj-body"><span class="proj-area">Ingeniería especializada · Geofísica</span><h3>Pruebas de campo en Huancavelica y Jaén</h3><p>Estudios de tomografía eléctrica para caracterizar el subsuelo en Huancavelica y en Jaén (Cajamarca).</p></div></article>
+      <article class="proj reveal" style="--c:#4A2577;--d:.08s"><figure><img src="assets/proj-ambiental.webp" alt="Equipo de medición de pH y muestras de agua en laboratorio" width="1000" height="553" loading="lazy"></figure><div class="proj-body"><span class="proj-area">Investigación ambiental</span><h3>Expedición ambiental</h3><p>Muestreo en campo y análisis de laboratorio para investigación ambiental.</p></div></article>
+      <article class="proj reveal" style="--c:#4A2577;--d:.16s"><figure><img src="assets/amb-multiparametro.webp" alt="Maletín con medidor multiparámetro y sondas para calidad de agua" width="1000" height="659" loading="lazy"></figure><div class="proj-body"><span class="proj-area">Ambiente y calidad</span><h3>Calidad de agua</h3><p>Medición de parámetros en campo y análisis de laboratorio, como pH y nitrógeno amoniacal.</p></div></article>
+      <article class="proj reveal" style="--c:#4A2577;--d:.24s"><figure><img src="assets/amb-rio.webp" alt="Planta de captación de agua potable sobre un río en Iquitos, Loreto" width="1000" height="562" loading="lazy"></figure><div class="proj-body"><span class="proj-area">Investigación ambiental · Aguas</span><h3>Calidad del agua en Loreto (Iquitos)</h3><p>Análisis físico, químico y bacteriológico del agua que ingresa a una planta de captación de agua potable, para identificar minerales en niveles no aceptables y contaminantes como metales pesados (plomo y cadmio).</p></div></article>
     </div>
     <h3 class="gallery-title reveal">Pruebas de <span>campo</span></h3>
+    <div class="field-carousel" role="region" aria-label="Fotografías de pruebas de campo">
     <div class="gallery">
-      <figure class="reveal"><img src="assets/proj-huancavelica.jpg" alt="Prueba de campo en un valle de Huancavelica" width="1000" height="551" loading="lazy"></figure>
-      <figure class="reveal" style="--d:.06s"><img src="assets/amb-quebrada.jpg" alt="Quebrada con agua de color rojizo rodeada de vegetación tropical" width="1000" height="750" loading="lazy"></figure>
-      <figure class="reveal" style="--d:.12s"><img src="assets/amb-nitrogeno.jpg" alt="Kit colorimétrico para análisis de nitrógeno amoniacal en agua" width="1000" height="562" loading="lazy"></figure>
-      <figure class="reveal" style="--d:.18s"><img src="assets/amb-muestras.jpg" alt="Muestras de agua en botellas sobre una mesa de laboratorio" width="1000" height="562" loading="lazy"></figure>
+      <figure class="reveal"><img src="assets/proj-huancavelica.webp" alt="Prueba de campo en un valle de Huancavelica" width="1000" height="551" loading="lazy"></figure>
+      <figure class="reveal" style="--d:.06s"><img src="assets/amb-quebrada.webp" alt="Quebrada con agua de color rojizo rodeada de vegetación tropical" width="1000" height="750" loading="lazy"></figure>
+      <figure class="reveal" style="--d:.12s"><img src="assets/amb-nitrogeno.webp" alt="Kit colorimétrico para análisis de nitrógeno amoniacal en agua" width="1000" height="562" loading="lazy"></figure>
+      <figure class="reveal" style="--d:.18s"><img src="assets/amb-muestras.webp" alt="Muestras de agua en botellas sobre una mesa de laboratorio" width="1000" height="562" loading="lazy"></figure>
     </div>
+    </div>
+    <button type="button" class="motion-toggle" id="field-pause" aria-pressed="false">Pausar carrusel</button>
   </div>
 </section>
 
@@ -753,16 +781,16 @@ a{color:var(--gold);text-decoration:none}a:hover{color:var(--gold-hover)}
     </div>
     <ul class="allies">
       <li class="ally ally-feature reveal">
-        <div class="ally-logo"><img src="assets/aliado-bethabel.jpg" alt="Logo de Bethabel Company" width="334" height="360" loading="lazy"></div>
+        <div class="ally-logo"><img src="assets/aliado-bethabel.webp" alt="Logo de Bethabel Company" width="334" height="360" loading="lazy"></div>
         <div class="ally-body">
           <span class="a">Geofísica · Aliado principal</span>
           <h3 class="n">Bethabel Company</h3>
           <p>Aliado especializado en geofísica. Trabajamos juntos en estudios del subsuelo y pruebas de campo para proyectos de ingeniería.</p>
         </div>
-        <figure class="ally-rep"><img src="assets/aliado-bethabel-representante.jpg" alt="Representante de Bethabel Company" width="432" height="432" loading="lazy"><figcaption>Representante de Bethabel Company</figcaption></figure>
+        <figure class="ally-rep"><img src="assets/aliado-bethabel-representante-v2.webp" alt="Representante de Bethabel Company" width="1254" height="1254" loading="lazy"><figcaption>Representante de Bethabel Company</figcaption></figure>
       </li>
       <li class="ally reveal">
-        <div class="ally-logo"><img src="assets/aliado-ecus.jpg" alt="Logo de ECUS S.A.C." width="309" height="360" loading="lazy"></div>
+        <div class="ally-logo"><img src="assets/aliado-ecus.webp" alt="Logo de ECUS S.A.C." width="309" height="360" loading="lazy"></div>
         <div class="ally-body">
           <span class="a">Construcción y telecomunicaciones · Loreto</span>
           <h3 class="n">ECUS S.A.C.</h3>
@@ -770,7 +798,7 @@ a{color:var(--gold);text-decoration:none}a:hover{color:var(--gold-hover)}
         </div>
       </li>
       <li class="ally reveal" style="--d:.08s">
-        <div class="ally-logo"><img src="assets/aliado-odiseo.jpg" alt="Logo de ODISEO, Oficina de Informática y Servicios Especiales Orientados" width="293" height="367" loading="lazy"></div>
+        <div class="ally-logo"><img src="assets/aliado-odiseo.webp" alt="Logo de ODISEO, Oficina de Informática y Servicios Especiales Orientados" width="293" height="367" loading="lazy"></div>
         <div class="ally-body">
           <span class="a">Informática y software · Tarapoto</span>
           <h3 class="n">ODISEO</h3>
@@ -778,7 +806,7 @@ a{color:var(--gold);text-decoration:none}a:hover{color:var(--gold-hover)}
         </div>
       </li>
       <li class="ally reveal" style="--d:.16s">
-        <div class="ally-logo dark-logo"><img src="assets/aliado-aionvex.jpg" alt="Logo de AIONVEX" width="400" height="400" loading="lazy"></div>
+        <div class="ally-logo dark-logo"><img src="assets/aliado-aionvex.webp" alt="Logo de AIONVEX" width="400" height="400" loading="lazy"></div>
         <div class="ally-body">
           <span class="a">Soluciones tecnológicas</span>
           <h3 class="n">AIONVEX</h3>
@@ -1007,6 +1035,45 @@ a{color:var(--gold);text-decoration:none}a:hover{color:var(--gold-hover)}
   });
   var hashUnit = /^#u-(ing|tec|id|geo|emp)$/.exec(location.hash);
   if (hashUnit) show(hashUnit[1]);
+
+
+  /* Timed services: pause on interaction, offscreen, or hidden tab. */
+  var servicePaused = reduce, serviceElapsed = 0;
+  var serviceButton = document.getElementById('service-pause');
+  function serviceLabel(){serviceButton.textContent=servicePaused?'Reproducir servicios':'Pausar servicios';serviceButton.setAttribute('aria-pressed',String(servicePaused));}
+  serviceLabel();
+  serviceButton.addEventListener('click',function(){servicePaused=!servicePaused;serviceElapsed=0;serviceLabel();});
+  tabsEl.addEventListener('click',function(){serviceElapsed=0;});
+  tabsEl.addEventListener('keydown',function(){serviceElapsed=0;});
+  setInterval(function(){
+    var section=document.getElementById('servicios'), rect=section.getBoundingClientRect();
+    if(servicePaused||document.hidden||section.matches(':hover')||section.contains(document.activeElement)||rect.bottom<0||rect.top>innerHeight){serviceElapsed=0;return;}
+    serviceElapsed+=250;
+    if(serviceElapsed>=5000){serviceElapsed=0;var i=tabs.findIndex(function(t){return t.getAttribute('aria-selected')==='true';});show(tabs[(i+1)%tabs.length].id.slice(4));}
+  },250);
+  /* Duplicate one equal-width set for a seamless loop. */
+  var carousel=document.querySelector('.field-carousel'), gallery=carousel.querySelector('.gallery');
+  Array.from(gallery.children).forEach(function(figure){
+    figure.classList.remove('reveal');figure.removeAttribute('style');
+    var copy=figure.cloneNode(true);copy.setAttribute('aria-hidden','true');gallery.appendChild(copy);
+  });
+  // Each set includes its final gap, so the loop joins without a jump.
+  gallery.style.paddingRight='16px';
+  var fieldPaused=reduce, fieldButton=document.getElementById('field-pause');
+  function fieldLabel(){carousel.classList.toggle('paused',fieldPaused);fieldButton.textContent=fieldPaused?'Reproducir carrusel':'Pausar carrusel';fieldButton.setAttribute('aria-pressed',String(fieldPaused));}
+  fieldLabel();fieldButton.addEventListener('click',function(){fieldPaused=!fieldPaused;fieldLabel();});
+  /* Open photographs at their available resolution without card cropping. */
+  var viewer=document.createElement('dialog');viewer.className='image-viewer';viewer.setAttribute('aria-label','Fotografía ampliada');
+  var closeImage=document.createElement('button');closeImage.type='button';closeImage.className='motion-toggle';closeImage.textContent='Cerrar imagen';
+  var fullImage=document.createElement('img'),caption=document.createElement('p');viewer.append(closeImage,fullImage,caption);document.body.appendChild(viewer);
+  closeImage.addEventListener('click',function(){viewer.close();});
+  viewer.addEventListener('click',function(e){if(e.target===viewer)viewer.close();});
+  document.querySelectorAll('.hero-media img,.proj img,.gallery img,.unit-media img,.ally-rep img').forEach(function(img){
+    var duplicate=img.closest('[aria-hidden="true"]');
+    img.style.cursor='zoom-in';if(!duplicate){img.tabIndex=0;img.setAttribute('role','button');img.setAttribute('aria-label','Ampliar: '+img.alt);}
+    function openImage(){fullImage.src=img.src;fullImage.alt=img.alt;caption.textContent=img.alt;viewer.showModal();}
+    img.addEventListener('click',openImage);img.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openImage();}});
+  });
 
   /* ===== Formulario: envío por FormSubmit al correo de la empresa ===== */
   var form = document.getElementById('form');
